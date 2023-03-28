@@ -1,5 +1,12 @@
 """
+Scrape utilities for aggregating data from existing ontologies in the music
+domain.
+At the moment, the following ontologies are scraped:
+- Music Ontology
+- Doremus Ontology
 
+The scraper returns a dictionary with the classes, properties and instances of
+the ontology. The dictionary can be saved as a CSV file.
 """
 
 import pandas as pd
@@ -75,7 +82,7 @@ def scrape_mo(save: bool = True) -> dict:
 
     # save if the save parameter is True
     if save:
-        save_csv(items, 'musicontology.csv')
+        save_csv(items, './data/musicontology.csv')
 
     return items
 
@@ -102,24 +109,24 @@ def scrape_doremus(save: bool = True) -> dict:
     for c in (classes.find_all('li') + properties.find_all('li')):
         name = c.find('span').text
         uri = c.find('small').text
-        print(name)
         element = 'class' if name[0] == 'M' else 'property'
         features = c.find_all('ul', class_='features')
         for e in features:
             try:
-                key = e.find_all('div', class_='prop')[0].text
-                value = e.find_all('div', class_='obj')[0].text
-                items[name] = {
-                    'element': element,
-                    'uri': uri,
-                    key: value
-                }
+                for f in e.find_all('li'):
+                    key = f.find_all('div', class_='prop')[0].text
+                    value = f.find_all('div', class_='obj')[0].text
+                    items[name] = {
+                        'element': element,
+                        'uri': uri,
+                        key: value
+                    }
             except IndexError:
                 pass
 
     # save if the save parameter is True
     if save:
-        save_csv(items, 'doremus.csv')
+        save_csv(items, './data/doremus.csv')
 
     return items
 
