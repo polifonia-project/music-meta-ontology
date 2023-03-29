@@ -23,7 +23,7 @@ def save_csv(items: dict, filename: str):
     :param items: the dictionary to save
     :param filename: the name of the file
     """
-    df = pd.DataFrame(items, index=None).T
+    df = pd.DataFrame(items).T
     df.rename(columns={'element': 'Element',
                        'rdfs:comment': 'Description',
                        'uri': 'URI',
@@ -40,7 +40,7 @@ def save_csv(items: dict, filename: str):
                        'skos:scopeNote': 'ScopeNote',
                        },
               inplace=True)
-    df.to_csv(filename)
+    df.to_csv(filename, index=True, index_label='Name')
 
 
 def scrape_mo(save: bool = True) -> dict:
@@ -156,4 +156,3 @@ def scrape_doremus(save: bool = True) -> dict:
 if __name__ == '__main__':
     mo = scrape_mo()
     doremus = scrape_doremus()
-    # print(doremus)

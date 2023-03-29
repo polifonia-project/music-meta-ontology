@@ -1,4 +1,4 @@
-,Element,description,URI,Label,Status,ParentClass,Properties,InheritedProperties,Subclasses,SeeAlso,FRBRElement,Range,Domain
+Name,Element,description,URI,Label,Status,ParentClass,Properties,InheritedProperties,Subclasses,SeeAlso,FRBRElement,Range,Domain
 Activity,class,"An activity period, defining when an artist was musically active.",http://purl.org/ontology/mo/Activity,activity,testing,http://purl.org/NET/c4dm/event.owl#Event,,,,,,,
 AnalogSignal,class,An analog signal.,http://purl.org/ontology/mo/AnalogSignal,analogue signal,stable,Signal,sampled_version,"channels, derived_from, djmixed_by, interpreter, isrc, puid, records, time, trmid, published_as",,,,,
 Arrangement,class,"An arrangement event.         Takes as agent the arranger, and produces a score (informational object, not the actually published score).",http://purl.org/ontology/mo/Arrangement,arrangement,stable,http://purl.org/NET/c4dm/event.owl#Event,arrangement_of,,"Instrumentation, Orchestration",,,,
