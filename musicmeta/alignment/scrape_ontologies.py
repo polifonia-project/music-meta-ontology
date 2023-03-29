@@ -37,6 +37,7 @@ def save_csv(items: dict, filename: str):
                        'owl:inverseOf': 'InverseOf',
                        'owl:disjointWith': 'DisjointWith',
                        'owl:unionOf': 'UnionOf',
+                       'skos:scopeNote': 'ScopeNote',
                        },
               inplace=True)
     df.to_csv(filename)
@@ -70,19 +71,21 @@ def scrape_mo(save: bool = True) -> dict:
                 element = 'individual'
             else:
                 attributes[type] = value
+
+        # add value if FRBR parent class
+        if 'ParentClass' in attributes and 'frbr' in attributes['ParentClass']:
+            print(attributes['ParentClass'].split('#')[-1])
+            attributes['FRBRElement'] = attributes['ParentClass'].split('#')[-1]
+
         items[name] = {
             'element': element,
             'description': description
         }
         items[name].update(attributes)
 
-        # add value if FRBR parent class
-        if 'ParentClass' in attributes and 'frbr' in attributes['ParentClass']:
-            attributes['FRBRElement'] = attributes['ParentClass'].split('#')[-1]
-
     # save if the save parameter is True
     if save:
-        save_csv(items, './data/musicontology.csv')
+        save_csv(items, 'musicontology.csv')
 
     return items
 
@@ -105,33 +108,52 @@ def scrape_doremus(save: bool = True) -> dict:
 
     classes = soup.find('section', class_='classes card')
     properties = soup.find('section', class_='properties card')
+    cp = classes.find_all('li') + properties.find_all('li')
+    cp = filter(lambda x: x.find('h2') is not None, cp)
 
-    for c in (classes.find_all('li') + properties.find_all('li')):
-        name = c.find('span').text
+    for c in cp:
+        name = c.find('h2')
+        name = name.find('span').text
+
         uri = c.find('small').text
         element = 'class' if name[0] == 'M' else 'property'
         features = c.find_all('ul', class_='features')
+        attributes = {}
         for e in features:
             try:
                 for f in e.find_all('li'):
                     key = f.find_all('div', class_='prop')[0].text
                     value = f.find_all('div', class_='obj')[0].text
-                    items[name] = {
-                        'element': element,
-                        'uri': uri,
-                        key: value
-                    }
+                    attributes[key] = value
             except IndexError:
                 pass
 
+        # add FRBRoo parent class
+        if 'rdfs:subClassOf' in attributes and 'frbr' in attributes[
+            'rdfs:subClassOf']:
+            attributes['FRBRElement'] = \
+            attributes['rdfs:subClassOf'].split(':')[-1]
+
+        # add C-CRM parent class
+        if 'rdfs:subClassOf' in attributes and 'crm' in attributes[
+            'rdfs:subClassOf']:
+            attributes['CCRMElement'] = \
+            attributes['rdfs:subClassOf'].split(':')[-1]
+
+        items[name] = {
+            'element': element,
+            'uri': uri
+        }
+        items[name].update(attributes)
+
     # save if the save parameter is True
     if save:
-        save_csv(items, './data/doremus.csv')
+        save_csv(items, 'doremus.csv')
 
     return items
 
 
 if __name__ == '__main__':
-    # mo = scrape_mo()
+    mo = scrape_mo()
     doremus = scrape_doremus()
     # print(doremus)
