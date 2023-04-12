@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/polifonia/ontology/music-meta/"
+     xml:base="https://w3id.org/polifonia/ontology/music-meta/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/polifonia/ontology/music-meta/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Broadcaster -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Broadcaster">
+        <rdfs:label xml:lang="en">Broadcaster</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation">
+        <rdfs:label xml:lang="en">Broadcasting Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Composition -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Composition">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
+        <rdfs:label xml:lang="en">Composition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/CreativeAction -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/CreativeAction">
+        <rdfs:label xml:lang="en">Creative Action</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/CreativeProcess -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess">
+        <rdfs:label xml:lang="en">Creative Process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/CreativeTask -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/CreativeTask">
+        <rdfs:label xml:lang="en">Creative Task</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/DigitalScore -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/DigitalScore">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Score"/>
+        <rdfs:label xml:lang="en">DigitalScore</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Instrumentation -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Instrumentation">
+        <rdfs:label xml:lang="en">Instrumentation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/LivePerformance -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/LivePerformance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicalPerformance"/>
+        <rdfs:label xml:lang="en">Live Performance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/MusicAlgorithm -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicAlgorithm">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:label xml:lang="en">Music Algorithm</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/MusicArtist -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicArtist">
+        <rdfs:label xml:lang="en">Music Artist</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:label xml:lang="en">Music Ensenble</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/MusicEntity -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicEntity">
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:label xml:lang="en">Music Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/MusicGenre -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicGenre">
+        <rdfs:label xml:lang="en">Music Genre</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/MusicSheet -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicSheet">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Score"/>
+        <rdfs:label xml:lang="en">Music Sheet</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/MusicalPerformance -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicalPerformance">
+        <rdfs:label xml:lang="en">Musical Performance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Musician -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Musician">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:label xml:lang="en">Musician</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Part -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Part">
+        <rdfs:label xml:lang="en">Part</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/PublicationSituation -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/PublicationSituation">
+        <rdfs:label xml:lang="en">Publication Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Rearrangement -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Rearrangement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
+        <rdfs:label xml:lang="en">Rearrangement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Recording -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Recording">
+        <rdfs:label xml:lang="en">Recording</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Recording_Situation -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Recording_Situation">
+        <rdfs:label xml:lang="en">Recording Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Release -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Release">
+        <rdfs:label xml:lang="en">Release</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Remix -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Remix">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
+        <rdfs:label xml:lang="en">Remix</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Score -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Score">
+        <rdfs:label xml:lang="en">Score</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/StudioPerformance -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/StudioPerformance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicalPerformance"/>
+        <rdfs:label xml:lang="en">Studio Performance</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
