@@ -5,8 +5,11 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:core="https://w3id.org/polifonia/ontology/core/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="https://w3id.org/polifonia/ontology/music-meta/"/>
+    <owl:Ontology rdf:about="https://w3id.org/polifonia/ontology/music-meta/">
+        <owl:imports rdf:resource="https://w3id.org/polifonia/ontology/core/0.1"/>
+    </owl:Ontology>
     
 
 
@@ -56,14 +59,6 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/hasInstrumentation -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasInstrumentation">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/music-meta/Composition"/>
-                    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/music-meta/Rearrangement"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Instrumentation"/>
         <rdfs:label xml:lang="en">Has instrumentation</rdfs:label>
     </owl:ObjectProperty>
@@ -191,7 +186,6 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isRecordedBy">
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicalPerformance"/>
-        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingSituation"/>
         <rdfs:label xml:lang="en">Is recorded by</rdfs:label>
     </owl:ObjectProperty>
     
@@ -219,7 +213,6 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/producesRecording -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/producesRecording">
-        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingSituation"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Recording"/>
         <rdfs:label xml:lang="en">Produces recording</rdfs:label>
     </owl:ObjectProperty>
@@ -278,6 +271,14 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/music-meta/AnnotationMethod -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/AnnotationMethod">
+        <rdfs:label xml:lang="en">Annotation Method</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/Award -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Award">
@@ -302,11 +303,26 @@
     
 
 
-    <!-- https://w3id.org/polifonia/ontology/music-meta/Composition -->
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Collection -->
 
-    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Composition">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
-        <rdfs:label xml:lang="en">Composition</rdfs:label>
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Collection">
+        <rdfs:label xml:lang="en">Collection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/CollectionConcept -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/CollectionConcept">
+        <rdfs:label xml:lang="en">Collection Concept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/CompositionPart -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/CompositionPart">
+        <rdfs:label xml:lang="en">Composition Part</rdfs:label>
     </owl:Class>
     
 
@@ -335,6 +351,14 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/music-meta/DedicationStatement -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/DedicationStatement">
+        <rdfs:label xml:lang="en">Dedication Statement</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/DigitalScore -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/DigitalScore">
@@ -350,6 +374,31 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Language -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Language">
+        <rdfs:label xml:lang="en">Language</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Libretto -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Libretto">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/TextFragment"/>
+        <rdfs:label xml:lang="en">Libretto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/License -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/License">
+        <rdfs:label xml:lang="en">License</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/LivePerformance -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/LivePerformance">
@@ -359,10 +408,36 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Lyrics -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Lyrics">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/TextFragment"/>
+        <rdfs:label xml:lang="en">Lyrics</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/MediumOfPerformance -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MediumOfPerformance">
         <rdfs:label xml:lang="en">Medium of Performance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Mode -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Mode">
+        <rdfs:label xml:lang="en">Mode</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Movement -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Movement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CompositionPart"/>
+        <rdfs:label xml:lang="en">Movement</rdfs:label>
     </owl:Class>
     
 
@@ -376,10 +451,26 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/music-meta/MusicAnnotationTimeInterval -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicAnnotationTimeInterval">
+        <rdfs:label xml:lang="en">Music Annotation Time Interval</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/MusicArtist -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicArtist">
         <rdfs:label xml:lang="en">Music Artist</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/MusicEnsambleMembership -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicEnsambleMembership">
+        <rdfs:label xml:lang="en">Music Ensamble Membership</rdfs:label>
     </owl:Class>
     
 
@@ -436,6 +527,22 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Note -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Note">
+        <rdfs:label xml:lang="en">Note</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/OpusStatement -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/OpusStatement">
+        <rdfs:label xml:lang="en">Opus Stantement</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/PublicationSituation -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/PublicationSituation">
@@ -444,11 +551,10 @@
     
 
 
-    <!-- https://w3id.org/polifonia/ontology/music-meta/Rearrangement -->
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Publisher -->
 
-    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Rearrangement">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
-        <rdfs:label xml:lang="en">Rearrangement</rdfs:label>
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Publisher">
+        <rdfs:label xml:lang="en">Publisher</rdfs:label>
     </owl:Class>
     
 
@@ -461,10 +567,19 @@
     
 
 
-    <!-- https://w3id.org/polifonia/ontology/music-meta/RecordingSituation -->
+    <!-- https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement -->
 
-    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/RecordingSituation">
-        <rdfs:label xml:lang="en">Recording Situation</rdfs:label>
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement">
+        <rdfs:label xml:lang="en">Recording Equipement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/RecordingProcess -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
+        <rdfs:label xml:lang="en">Recording Process</rdfs:label>
     </owl:Class>
     
 
@@ -473,15 +588,6 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Release">
         <rdfs:label xml:lang="en">Release</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/polifonia/ontology/music-meta/Remix -->
-
-    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Remix">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
-        <rdfs:label xml:lang="en">Remix</rdfs:label>
     </owl:Class>
     
 
@@ -502,11 +608,36 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Section -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Section">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CompositionPart"/>
+        <rdfs:label xml:lang="en">Section</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/StudioPerformance -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/StudioPerformance">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicalPerformance"/>
         <rdfs:label xml:lang="en">Studio Performance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Text -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Text">
+        <rdfs:label xml:lang="en">Text</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/TextFragment -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/TextFragment">
+        <rdfs:label xml:lang="en">Text Fragment</rdfs:label>
     </owl:Class>
     
 
