@@ -56,11 +56,59 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/music-meta/hasDedicationStatement -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasDedicationStatement">
+        <rdfs:label xml:lang="en">Has dedication statement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/hasEquipement -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasEquipement">
+        <rdfs:label xml:lang="en">Has equipement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/hasFormType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasFormType">
+        <rdfs:label xml:lang="en">Has form type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/hasGenre -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasGenre">
+        <rdfs:comment xml:lang="en">Has genre</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/hasInstrumentation -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasInstrumentation">
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Instrumentation"/>
         <rdfs:label xml:lang="en">Has instrumentation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/hasKey -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasKey">
+        <rdfs:label xml:lang="en">Has key</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/hasLicense -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasLicense">
+        <rdfs:label xml:lang="en">Has license</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -71,6 +119,22 @@
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/ScorePart"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MediumOfPerformance"/>
         <rdfs:label xml:lang="en">Has medium</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/hasMode -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasMode">
+        <rdfs:label xml:lang="en">Has mode</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/hasOpusStatement -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasOpusStatement">
+        <rdfs:label xml:lang="en">Has opus statement</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -131,6 +195,22 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/music-meta/hasText -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasText">
+        <rdfs:label>Has text</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/hasTonic -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasTonic">
+        <rdfs:label xml:lang="en">Has tonic</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/involvesCreativeAction -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/involvesCreativeAction">
@@ -157,6 +237,14 @@
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
         <rdfs:label xml:lang="en">Is influenced by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/isInvolvedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isInvolvedIn">
+        <rdfs:comment xml:lang="en">Is involved in</rdfs:comment>
     </owl:ObjectProperty>
     
 
