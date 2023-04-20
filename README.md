@@ -26,6 +26,11 @@ Our flagship ontology to describe music metadata
 -  Which task was executed by a creative action?
 -  Which are the parts of a musical piece?
 -  Which collection is a musical piece member of?
+-  Where was a musical piece performed?
+-  When was a musical piece performed?
+- Which music artists took part to a musical performance?
+- Which is the recording process that recorded a musical performance?
+- Which is the recording produced by a recording process?
   
   
 ## Examples of SPARQL queries addressed by the module
