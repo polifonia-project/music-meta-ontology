@@ -19,6 +19,13 @@ Our flagship ontology to describe music metadata
 -  Which is the alias of a music artist?
 -  Which is the language of the name/alias of a music artist?
 -  Which music dataset has a music algorithm been trained on?
+-  Which is the process that led to the creation of a musical piece?
+-  In which time interval did the creation process took place?
+-  Where did the creation process took place?
+-  Which are the creative actions composing the creation process of a musical piece?
+-  Which task was executed by a creative action?
+-  Which are the parts of a musical piece?
+-  Which collection is a musical piece member of?
   
   
 ## Examples of SPARQL queries addressed by the module
