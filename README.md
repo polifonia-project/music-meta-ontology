@@ -34,10 +34,11 @@ Our flagship ontology to describe music metadata
   
   
 ## Examples of SPARQL queries addressed by the module
-- xx?
+- Which are the members of a music ensemble?
 ```
-PREFIX x: <https://x/>
-SELECT DISTINCT ?y ?z
-WHERE { ?y ?p ?z
+PREFIX mm: <https://x/>
+SELECT DISTINCT ?musicEnsembleMember
+WHERE { ?musicEnsembleMember mm:isMemberOf ?musicEnsemble .
+?musicEnsemble rdf:type mm:MusicEnsemble .
 }
 ```
