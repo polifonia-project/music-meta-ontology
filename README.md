@@ -37,8 +37,9 @@ Our flagship ontology to describe music metadata
 - Which are the members of a music ensemble?
 ```
 PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+PREFIX core: <https://w3id.org/polifonia/ontology/core/>
 SELECT DISTINCT ?musicEnsembleMember
-WHERE { ?musicEnsembleMember mm:isMemberOf ?musicEnsemble .
+WHERE { ?musicEnsembleMember core:isMemberOf ?musicEnsemble .
 ?musicEnsemble rdf:type mm:MusicEnsemble .
 }
 ```
