@@ -43,3 +43,14 @@ WHERE { ?musicEnsembleMember core:isMemberOf ?musicEnsemble .
 ?musicEnsemble rdf:type mm:MusicEnsemble .
 }
 ```
+
+- Which role a music artist played within a music ensemble?
+```
+PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+SELECT DISTINCT ?musicEnsembleMember ?musicEnsembleMemberRole
+WHERE { ?musicEnsembleMember mm:isMemberOfMusicEnsembleInvolvedIn ?musicEnsembleMembership .
+?musicEnsembleMembership rdf:type mm:MusicEnsembleMembership ;
+core:involvesRole ?musicEnsembleMemberRole .
+}
+```
