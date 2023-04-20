@@ -36,7 +36,7 @@ Our flagship ontology to describe music metadata
 ## Examples of SPARQL queries addressed by the module
 - Which are the members of a music ensemble?
 ```
-PREFIX mm: <https://x/>
+PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
 SELECT DISTINCT ?musicEnsembleMember
 WHERE { ?musicEnsembleMember mm:isMemberOf ?musicEnsemble .
 ?musicEnsemble rdf:type mm:MusicEnsemble .
