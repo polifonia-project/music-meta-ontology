@@ -65,6 +65,51 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/core/hasAlias -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/hasAlias">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/core/Alias"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/core/hasPlace -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/hasPlace">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeAction"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/core/hasTimeInterval -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/hasTimeInterval">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeAction"/>
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/core/involvesAgent -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/involvesAgent">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/core/AgentRole"/>
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeAction"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/core/involvesRole -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/involvesRole">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/core/AgentRole"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/core/Role"/>
+    </rdf:Description>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/creates -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/creates">
@@ -285,6 +330,8 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/isInvolvedIn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isInvolvedIn">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
         <rdfs:comment xml:lang="en">Is involved in</rdfs:comment>
     </owl:ObjectProperty>
     
@@ -324,6 +371,7 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isTrainedOn">
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicAlgorithm"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/core/MusicDataset"/>
         <rdfs:label xml:lang="en">Is trained on</rdfs:label>
     </owl:ObjectProperty>
     
@@ -362,6 +410,7 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/wasFormedIn">
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/core/Place"/>
         <rdfs:label xml:lang="en">Was formed in</rdfs:label>
     </owl:ObjectProperty>
     
@@ -375,6 +424,35 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/core/activityEndDate -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/activityEndDate">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/core/TimeInterval"/>
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/core/activityStartDate -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/activityStartDate">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/core/TimeInterval"/>
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/core/name -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/name">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/core/Alias"/>
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+    </rdf:Description>
     
 
 
@@ -650,6 +728,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/Musician -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Musician">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/core/Person"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
         <rdfs:label xml:lang="en">Musician</rdfs:label>
     </owl:Class>
