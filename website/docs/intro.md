@@ -32,3 +32,5 @@ First of all, it requires a perspective that harmonises all requirements from di
 - **Challenge 3: Provenance is fundamental for data integration**. Accounting for provenance is a central requirement for both cultural heritage and music industry. This becomes fundamental when integrating Knowledge Graphs from different datasets and stakeholders - as every single bit of data (each triple) should be attributable to a dataset/KG. Provenance is also needed within the context of a single dataset, at least for claims and links.
 
 > For more info, please check out our GitHub repository and the upcoming manuscript.
+
+![Overview of Music Meta](../../diagrams/music_meta.png)

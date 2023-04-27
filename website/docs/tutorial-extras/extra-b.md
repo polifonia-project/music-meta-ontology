@@ -2,4 +2,8 @@
 sidebar_position: 2
 ---
 
-# More B
+# Contributing to Music Meta
+
+## Extending the ontology
+
+## Specialising the ontology
