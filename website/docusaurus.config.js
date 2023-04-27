@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'The Music Meta Ontology',
-  tagline: 'Bridging the music industry with cultural heritage',
+  tagline: 'Make your music metadata interoperable',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -66,8 +66,8 @@ const config = {
       navbar: {
         title: 'Music Meta',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Music Meta Logo',
+          src: 'img/musicmeta_logo.png',
         },
         items: [
           {
@@ -78,7 +78,7 @@ const config = {
           },
           {to: '/blog', label: 'News', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/polifonia-project/musicmeta-ontology',
             label: 'GitHub',
             position: 'right',
           },
@@ -101,11 +101,11 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://discordapp.com/invite/polifonia',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/PolifoniaH2020',
               },
             ],
           },
@@ -118,7 +118,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/polifonia-project/musicmeta-ontology',
               },
             ],
           },

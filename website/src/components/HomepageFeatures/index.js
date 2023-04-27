@@ -4,29 +4,35 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to learn and use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Expressive and flexible',
+    Svg: require('@site/static/img/placeholder.svg').default,
     description: (
       <>
-        No need to struggle with other ontologies.
+        Music Meta provides an abstraction to describe music metadata across
+        different genres and periods, for various stakeholders and datasets. It 
+        is thought to be specialised and extended.
       </>
     ),
   },
   {
     title: 'Focus on your music data',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/placeholder.svg').default,
     description: (
       <>
-        Several domains, one ontology.
+        The creation of Music Knowledge Graphs from your data is streamlined by
+        the pyMusicMeta library. No need to know the details of Music Meta,    
+        and we also produce alignments with other ontologies.
       </>
     ),
   },
   {
-    title: 'Aligned with other ontologies',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Provenance at the core',
+    Svg: require('@site/static/img/placeholder.svg').default,
     description: (
       <>
-        We align to ... 
+        Who said that Beethoven is the composer of this piece? How was this link
+        to MusicBrainz obtained? With wich confidence? Provenance is the core of
+        Music Meta, and you can always include reference.  
       </>
     ),
   },
