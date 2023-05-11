@@ -6,6 +6,9 @@
 
 An ontology for music metadata.
 
+[![DOI](https://zenodo.org/badge/372536364.svg)](https://zenodo.org/badge/latestdoi/372536364)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
 Music Meta is a **rich** and **flexible** semantic model to describe **music metadata** related to artists, compositions, performances, recordings, broadcasts, and links. Music Meta provides an **abstraction** layer to represent (Western) music metadata across different genres and periods, for various stakeholders and music datasets. The ontology is thus designed to be specialised to the specific contexts of application (see some examples below) and is part of the Polifonia Ontology Network.
 
 **How?** We follow eXtreme Design methodologies and best practices for data engineering [1], to reflect the perspectives and the requirements of various stakeholders into the design of the model, while leveraging ontology design patterns and accounting for provenance at different levels (claims, links). We provide a first evaluation of the model, alignments to other schema (Music Ontology, DOREMUS, Wikidata), and support for data transformation.
