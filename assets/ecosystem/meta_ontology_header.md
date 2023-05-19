@@ -16,9 +16,9 @@ project: polifonia-project
 resource: ontology/musicmeta.owl
 release-date: 13/04/2023
 release-number: v1.0
-release-link: https://github.com/polifonia-project/music-meta-ontology
+release-link: https://github.com/polifonia-project/ontology-network/releases
 doi: 10.5281/zenodo.7919970
-changelog: https://github.com/polifonia-project/music-meta-ontology
+changelog: https://github.com/polifonia-project/ontology-network/releases
 licence: 
 - CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
 copyright: "Copyright (c) 2023 My Ontology Contributors"
@@ -55,3 +55,21 @@ in My Journal or Conference (2023): 1-31. https://dl.ac.org/doi/pdf/XXX.YYY"
 - deliverable-document:
   - "Author 1, Author 2, and Author 3. \"Another title of publication\"
 in My Journal or Conference (2023): 1-31. https://dl.ac.org/doi/pdf/XXX.YYY" -->
+
+# Music Meta Ontology
+
+The Music Meta module provides a rich and flexible ontology to describe music
+metadata related to artists, compositions, performances, recordings,
+casts, and links. Music Meta focuses on provenance and interoperability – 
+essential requirements for the integration of music datasets, which is currently
+hampered by the specificity of existent ontologies. The model is based on the
+Information-Realisation ODP, allowing to reduce complexity of FRBR-based
+models, whose application in the music domain has raised concerns.
+To enable data integration from existing knowledge bases and datasets, we also
+align Meta to Music Ontology, DOREMUS, and Wikidata. To facil- itate
+the reuse of Music Meta and its data conversion into OWL/RDF Knowl- edge Graphs,
+we developed a library to map arbitrary music metadata into RDF triples. This
+enables a practical and scalable workflow for data lifting to create Music
+Knowledge Graphs without expert knowledge of our ontological model.
+
+[Link to the website](https://github.com/polifonia-project/music-meta-ontology)
