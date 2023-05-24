@@ -20,7 +20,7 @@ release-link: https://github.com/polifonia-project/ontology-network/releases
 doi: 10.5281/zenodo.7919970
 changelog: https://github.com/polifonia-project/ontology-network/releases
 licence: 
-- CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+- CC-BY_v4
 copyright: "Copyright (c) 2023 My Ontology Contributors"
 contributors: # replace these with the GitHub URL of each contributor
 - Jacopo de Berardinis <https://github.com/jonnybluesman>

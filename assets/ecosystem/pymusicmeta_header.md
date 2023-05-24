@@ -19,7 +19,7 @@ release-link: https://github.com/polifonia-project/music-meta-ontology
 doi: 10.5281/zenodo.7919970
 changelog: https://github.com/polifonia-project/music-meta-ontology
 licence:
-- ISC License (ISC), https://opensource.org/license/isc-license-txt/
+- IscLicense
 copyright: "Copyright (c) 2023 My Ontology Contributors"
 contributors: # replace these with the GitHub URL of each contributor
 - Jacopo de Berardinis <https://github.com/jonnybluesman>
