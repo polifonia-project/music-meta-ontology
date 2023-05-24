@@ -21,7 +21,7 @@ doi: 10.5281/zenodo.7919970
 changelog: https://github.com/polifonia-project/ontology-network/releases
 licence: 
 - CC-BY_v4
-copyright: "Copyright (c) 2023 My Ontology Contributors"
+copyright: "Copyright (c) 2023 Music Meta Contributors"
 contributors: # replace these with the GitHub URL of each contributor
 - Jacopo de Berardinis <https://github.com/jonnybluesman>
 - Andrea Poltronieri <https://github.com/andreamust>
@@ -33,15 +33,13 @@ contributors: # replace these with the GitHub URL of each contributor
 - Marco Gurrieri <https://github.com/margur78>
 related-components:
 - informed-by:
-  - https://github.com/polifonia-project/polifoniacq-dataset
+  - polifoniacq-dataset
 - reuses:  # any reused/imported ontology
-  - https://github.com/polifonia-project/core/
+  - https://w3id.org/polifonia/ontology/core/
 - story:  # any related story this ontology addresses
-  - https://github.com/polifonia-project/stories/blob/main/Linka_Computer_Scientist/Linka%231_MusicKnowledge.md
+  - Linka#1_MusicKnowledge  # TODO Add more
 - persona:  # any persona this ontology addresses
-  - https://github.com/polifonia-project/stories/tree/main/Linka_Computer_Scientist
-- documentation:  # link any resource providing documentation for this ontology
-  - https://polifonia-project.github.io/music-meta-ontology/
+  - Linka
 ---
 
 <!-- bibliography:

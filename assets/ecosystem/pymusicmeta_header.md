@@ -20,17 +20,17 @@ doi: 10.5281/zenodo.7919970
 changelog: https://github.com/polifonia-project/music-meta-ontology
 licence:
 - IscLicense
-copyright: "Copyright (c) 2023 My Ontology Contributors"
+copyright: "Copyright (c) 2023 Music Meta Contributors"
 contributors: # replace these with the GitHub URL of each contributor
 - Jacopo de Berardinis <https://github.com/jonnybluesman>
 - Andrea Poltronieri <https://github.com/andreamust>
 related-components:
 - informed-by:
-  - https://github.com/polifonia-project/music-meta-ontology
+  - https://w3id.org/polifonia/ontology/music-meta/
 - reuses:  # any reused/imported ontology
-  - https://github.com/polifonia-project/music-meta-ontology
+  - https://w3id.org/polifonia/ontology/music-meta/
 - documentation:  # link any resource providing documentation for this ontology
-  - https://polifonia-project.github.io/music-meta-ontology/
+  - https://w3id.org/polifonia/ontology/music-meta/
 ---
 
 # pymusicmeta
