@@ -2,15 +2,19 @@
 <rdf:RDF xmlns="https://w3id.org/polifonia/ontology/music-meta/"
      xml:base="https://w3id.org/polifonia/ontology/music-meta/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:mus="http://data.doremus.org/ontology#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:core="https://w3id.org/polifonia/ontology/core/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/polifonia/ontology/music-meta/">
         <owl:versionIRI rdf:resource="https://w3id.org/polifonia/ontology/music-meta/1.0/"/>
+        <owl:imports rdf:resource="http://data.doremus.org/ontology#"/>
         <owl:imports rdf:resource="https://w3id.org/polifonia/ontology/core/0.1"/>
         <dc:creator xml:lang="en">Andrea Poltronieri</dc:creator>
         <dc:creator xml:lang="en">Jacopo de Berardinis</dc:creator>
@@ -617,6 +621,66 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://data.doremus.org/ontology#M14_Medium_Of_Performance -->
+
+    <rdf:Description rdf:about="http://data.doremus.org/ontology#M14_Medium_Of_Performance">
+        <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MediumOfPerformance"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://data.doremus.org/ontology#M36_Award -->
+
+    <rdf:Description rdf:about="http://data.doremus.org/ontology#M36_Award">
+        <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Award"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://data.doremus.org/ontology#M4_Key -->
+
+    <rdf:Description rdf:about="http://data.doremus.org/ontology#M4_Key">
+        <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Key"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://data.doremus.org/ontology#M5_Genre -->
+
+    <rdf:Description rdf:about="http://data.doremus.org/ontology#M5_Genre">
+        <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicGenre"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://erlangen-crm.org/current/E21_Person -->
+
+    <rdf:Description rdf:about="http://erlangen-crm.org/current/E21_Person">
+        <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/core/Person"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://erlangen-crm.org/efrbroo/F9_Place -->
+
+    <rdf:Description rdf:about="http://erlangen-crm.org/efrbroo/F9_Place">
+        <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/core/Place"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/core/Person -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/Person"/>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/core/Place -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/Place"/>
     
 
 
