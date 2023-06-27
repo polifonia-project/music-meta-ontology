@@ -155,7 +155,6 @@
 
     <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/isPartOf">
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEntity"/>
-        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Collection"/>
     </rdf:Description>
     
 
@@ -687,6 +686,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/AbstractScore -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/AbstractScore">
+        <rdfs:comment xml:lang="en">An abstract concept that allows to refer to the actual musical content of a MusicEntity. This makes it possible to describe musical properties that imply the existence of a hypothetical score, which may not be necessarily, or formally, materialised by the creators of the musical entity.</rdfs:comment>
         <rdfs:label xml:lang="en">Abstract Score</rdfs:label>
     </owl:Class>
     
@@ -695,6 +695,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/AnnotationMethod -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/AnnotationMethod">
+        <rdfs:comment xml:lang="en">An annotation method refers to the nature of the procedure used for producing annotation on an artifact.</rdfs:comment>
         <rdfs:label xml:lang="en">Annotation Method</rdfs:label>
     </owl:Class>
     
@@ -703,6 +704,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/Award -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Award">
+        <rdfs:comment xml:lang="en">An award is intended as a recognition for a creative outcome, or more generally, for an activity carried out over a period of time. Typically, an award is given by an organisation and follows a recurring event.</rdfs:comment>
         <rdfs:label xml:lang="en">Award</rdfs:label>
     </owl:Class>
     
@@ -720,22 +722,6 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation">
         <rdfs:label xml:lang="en">Broadcasting Situation</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/polifonia/ontology/music-meta/Collection -->
-
-    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Collection">
-        <rdfs:label xml:lang="en">Collection</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/polifonia/ontology/music-meta/CollectionConcept -->
-
-    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/CollectionConcept">
-        <rdfs:label xml:lang="en">Collection Concept</rdfs:label>
     </owl:Class>
     
 
@@ -925,7 +911,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/MusicEntity -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicEntity">
-        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:comment xml:lang="en">This class represents an Information Object, which is defined as the sum of all the elements that make up a piece of music. A music entity abstract a musical work, as it may results from a composition process, an improvisation, or be the result of non-written transmission.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Entity</rdfs:label>
     </owl:Class>
     

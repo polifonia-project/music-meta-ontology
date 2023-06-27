@@ -40,6 +40,12 @@ class URIFactory:
 
 
 class TripledObject():
+    """
+    General abstraction of a complex object that needs to be described by a
+    number of triples providing complementary information. Utilities provide a
+    way to streamline the creation and the manipulation of triples related to
+    the object until they are added to a Graph.
+    """
     def __init__(self, uri: str) -> None:
         self._uri = URIRef(uri)
         self._triple_store = []
@@ -176,6 +182,7 @@ class MusicMetaGraph(Graph):
 
     def __init__(self, *args, **kwargs):
         super(MusicMetaGraph, self).__init__(*args, **kwargs)
+        self.bind("mm", MM)
 
     def add_artist(self, artist: MusicArtist):
         """
