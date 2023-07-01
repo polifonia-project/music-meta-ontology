@@ -713,6 +713,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/Broadcaster -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Broadcaster">
+        <rdfs:comment xml:lang="en">A class representing an entity or organization involved in broadcasting or transmitting audio or video content, including music.</rdfs:comment>
         <rdfs:label xml:lang="en">Broadcaster</rdfs:label>
     </owl:Class>
     
@@ -721,6 +722,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation">
+        <rdfs:comment xml:lang="en">Represents a specific situation or context related to broadcasting activities. It encompasses various scenarios, conditions, or events that may impact the broadcast of music or other content. It can include properties such as location, time, and specific conditions.</rdfs:comment>
         <rdfs:label xml:lang="en">Broadcasting Situation</rdfs:label>
     </owl:Class>
     
@@ -737,6 +739,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/CreativeAction -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/CreativeAction">
+        <rdfs:comment xml:lang="en">An action or process involving creativity, imagination, and artistic expression. It encompasses activities related to the creation, production, or development of artistic works, including music. It can include properties such as creator, medium, and result.</rdfs:comment>
         <rdfs:label xml:lang="en">Creative Action</rdfs:label>
     </owl:Class>
     
@@ -745,6 +748,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/CreativeProcess -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess">
+        <rdfs:comment xml:lang="en">Describes a series of actions, steps, or stages involved in the creative development or production of artistic works, including music. It encompasses the process of generating ideas, exploring concepts, refining techniques, and producing the final creative output. It can include properties such as participants, duration, and output.</rdfs:comment>
         <rdfs:label xml:lang="en">Creative Process</rdfs:label>
     </owl:Class>
     
@@ -762,6 +766,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/DedicationStatement -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/DedicationStatement">
+        <rdfs:comment xml:lang="en">A statement or expression of dedication, typically found in music albums, books, or other creative works. It is a declaration of gratitude, acknowledgment, or special recognition towards individuals, groups, or causes. It can include properties such as text, creator, and recipient.</rdfs:comment>
         <rdfs:label xml:lang="en">Dedication Statement</rdfs:label>
     </owl:Class>
     
@@ -793,6 +798,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/Key -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Key">
+        <rdfs:comment xml:lang="en">The tonal center or tonic pitch of a musical composition. It denotes the specific pitch or note around which the composition revolves and provides a framework for harmonic and melodic relationships within the piece. It can include properties such as tonic pitch, mode, and related scales.</rdfs:comment>
         <rdfs:label xml:lang="en">Key</rdfs:label>
     </owl:Class>
     
@@ -844,6 +850,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/MediumOfPerformance -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MediumOfPerformance">
+        <rdfs:comment xml:lang="en">The specific ensemble, group, or combination of instruments or voices used in a musical performance or recording. It describes the medium through which the musical composition is interpreted and brought to life.</rdfs:comment>
         <rdfs:label xml:lang="en">Medium of Performance</rdfs:label>
     </owl:Class>
     
@@ -852,6 +859,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/Mode -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Mode">
+        <rdfs:comment xml:lang="en">A specific musical mode, which is a set of pitch relationships and tonal characteristics that define a particular scale and tonal center. It describes the arrangement of intervals and patterns of pitches used in a musical composition or performance.</rdfs:comment>
         <rdfs:label xml:lang="en">Mode</rdfs:label>
     </owl:Class>
     
@@ -870,6 +878,7 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicAlgorithm">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:comment xml:lang="en">An algorithm or computational process used in the creation, analysis, or manipulation of music. It encompasses algorithms designed to generate musical compositions, analyze musical patterns, apply effects or transformations to audio, or perform other computational tasks related to music.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Algorithm</rdfs:label>
     </owl:Class>
     
@@ -886,6 +895,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/MusicArtist -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicArtist">
+        <rdfs:comment xml:lang="en">An individual or group involved in creating, performing, or producing music. It encompasses musicians, singers, bands, composers, conductors, producers, and other artistic entities within the music industry.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Artist</rdfs:label>
     </owl:Class>
     
@@ -894,6 +904,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/MusicEnsambleMembership -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicEnsambleMembership">
+        <rdfs:comment xml:lang="en">The membership of a musician in a music ensemble. It captures the association between a musician and a specific ensemble, indicating that the musician is a member of the ensemble.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Ensamble Membership</rdfs:label>
     </owl:Class>
     
@@ -903,6 +914,7 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:comment xml:lang="en">A group or collective of musicians who perform together as an ensemble. It encompasses various types of musical groups, such as orchestras, bands, choirs, chamber ensembles, and jazz ensembles.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Ensenble</rdfs:label>
     </owl:Class>
     
@@ -920,6 +932,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/MusicGenre -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicGenre">
+        <rdfs:comment xml:lang="en">A specific category or classification of music that shares common characteristics, styles, or cultural origins. It encompasses distinct musical traditions, styles, or movements that define a particular genre.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Genre</rdfs:label>
     </owl:Class>
     
@@ -948,6 +961,7 @@
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Musician">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/core/Person"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:comment xml:lang="en">An individual who is skilled in playing a musical instrument, singing, or composing music. It encompasses instrumentalists, vocalists, composers, conductors, and other individuals actively engaged in the creation, performance, or production of music.</rdfs:comment>
         <rdfs:label xml:lang="en">Musician</rdfs:label>
     </owl:Class>
     
@@ -964,6 +978,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/OpusStatement -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/OpusStatement">
+        <rdfs:comment xml:lang="en">A statement or declaration related to a musical opus or composition. It is typically used to provide information about the creation, purpose, or significance of a specific musical work.</rdfs:comment>
         <rdfs:label xml:lang="en">Opus Stantement</rdfs:label>
     </owl:Class>
     
@@ -989,6 +1004,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/Recording -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Recording">
+        <rdfs:comment xml:lang="en">A recorded performance or rendition of a musical composition. It refers to the capturing of sound, whether in a studio or live setting, for the purpose of creating a permanent audio representation of a musical performance.</rdfs:comment>
         <rdfs:label xml:lang="en">Recording</rdfs:label>
     </owl:Class>
     
@@ -997,6 +1013,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement">
+        <rdfs:comment xml:lang="en">The equipment and tools used in the process of recording music. It encompasses the various devices, instruments, and technologies employed to capture and produce high-quality audio recordings.</rdfs:comment>
         <rdfs:label xml:lang="en">Recording Equipement</rdfs:label>
     </owl:Class>
     
@@ -1014,6 +1031,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/Release -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Release">
+        <rdfs:comment xml:lang="en">The distribution and availability of a recorded musical work to the public. It encompasses the act of officially making a recorded music product, such as an album or single, available for purchase, streaming, or other forms of consumption.</rdfs:comment>
         <rdfs:label xml:lang="en">Release</rdfs:label>
     </owl:Class>
     
@@ -1022,6 +1040,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/Score -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Score">
+        <rdfs:comment xml:lang="en">A written, printed or digital document that contains the musical notation of a composition. It encompasses the musical score, which serves as a visual representation of the music, including the arrangement of notes, rhythms, dynamics, and other musical symbols.</rdfs:comment>
         <rdfs:label xml:lang="en">Score</rdfs:label>
     </owl:Class>
     
@@ -1030,6 +1049,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/ScorePart -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/ScorePart">
+        <rdfs:comment xml:lang="en">A specific part or section within a musical score. It refers to a distinct musical line or voice within a composition that is intended to be performed by a particular instrument or group of instruments.</rdfs:comment>
         <rdfs:label xml:lang="en">Score Part</rdfs:label>
     </owl:Class>
     
@@ -1125,6 +1145,7 @@
 
     <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/music-meta/Instrumentation">
         <rdfs:label xml:lang="en">Instrumentation</rdfs:label>
+        <rdfs:comment xml:lang="en">The arrangement or combination of musical instruments used in a composition, performance, or recording. It describes the specific instruments, their roles, and how they interact to create the overall sound and texture of the music. It can include properties such as instruments used, roles, and techniques.</rdfs:comment>
     </rdf:Description>
 </rdf:RDF>
 
