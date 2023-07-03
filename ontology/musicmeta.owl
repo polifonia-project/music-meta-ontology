@@ -728,9 +728,28 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/music-meta/Collection -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Collection">
+        <rdfs:comment xml:lang="en">A curated or organized grouping of musical works or related entities. It encompasses a cohesive set of musical compositions, recordings, scores, or other music-related items that are brought together based on a specific theme, genre, artist, or any other organizing principle.</rdfs:comment>
+        <rdfs:label xml:lang="en">Collection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/CollectionConcept -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/CollectionConcept">
+        <rdfs:comment xml:lang="en">An abstract or conceptual grouping of musical works or related entities. It encompasses a conceptual framework or idea that serves as the basis for organizing and categorizing musical compositions, recordings, scores, or other music-related items.</rdfs:comment>
+        <rdfs:label xml:lang="en">Collection Concept</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/CompositionPart -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/CompositionPart">
+        <rdfs:comment xml:lang="en">A distinct section or segment of a musical composition. It encompasses the individual components or sections that make up a larger musical work, such as movements, sections, verses, choruses, or any other identifiable divisions within the composition.</rdfs:comment>
         <rdfs:label xml:lang="en">Composition Part</rdfs:label>
     </owl:Class>
     
@@ -776,6 +795,7 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/DigitalScore">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Score"/>
+        <rdfs:comment xml:lang="en">A digital or electronic version of a musical score. It encompasses the digital representation of musical notation, allowing for electronic distribution, display, and manipulation of the score.</rdfs:comment>
         <rdfs:label xml:lang="en">DigitalScore</rdfs:label>
     </owl:Class>
     
@@ -784,6 +804,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/FormType -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/FormType">
+        <rdfs:comment xml:lang="en">The type or structure of a musical composition. It encompasses the various standardized or recognized forms and structures that compositions can adopt, providing a framework for understanding and categorizing musical works based on their organizational patterns.</rdfs:comment>
         <rdfs:label xml:lang="en">Form Type</rdfs:label>
     </owl:Class>
     
@@ -804,18 +825,11 @@
     
 
 
-    <!-- https://w3id.org/polifonia/ontology/music-meta/Language -->
-
-    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Language">
-        <rdfs:label xml:lang="en">Language</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/polifonia/ontology/music-meta/Libretto -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Libretto">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/TextFragment"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Text"/>
+        <rdfs:comment xml:lang="en">The written text or script of an opera, oratorio, or other dramatic musical work. The libretto serves as the literary foundation for the performance, providing the dialogue, lyrics, and stage directions that guide the singers, actors, and production team.</rdfs:comment>
         <rdfs:label xml:lang="en">Libretto</rdfs:label>
     </owl:Class>
     
@@ -824,6 +838,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/License -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/License">
+        <rdfs:comment xml:lang="en">The legal agreement or permission governing the usage and distribution of a musical work or its associated components. It encompasses the terms and conditions under which the music is licensed, including the rights granted, restrictions imposed, and obligations of the licensee.</rdfs:comment>
         <rdfs:label xml:lang="en">License</rdfs:label>
     </owl:Class>
     
@@ -833,6 +848,7 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/LivePerformance">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicalPerformance"/>
+        <rdfs:comment xml:lang="en">A musical performance that takes place in real-time and is witnessed by an audience. It encompasses the act of performing music in a live setting, such as a concert, recital, or music festival, where the performers and audience interact directly.</rdfs:comment>
         <rdfs:label xml:lang="en">Live Performance</rdfs:label>
     </owl:Class>
     
@@ -841,7 +857,8 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/Lyrics -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Lyrics">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/TextFragment"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Text"/>
+        <rdfs:comment xml:lang="en">The textual component of a musical composition that consists of the words, verses, or poetic expressions sung or spoken during the performance. Lyrics provide the vocal content and convey the narrative, emotions, or messages expressed through the music. They encompass the written representation of the lyrical content, which may be organized into lines, stanzas, or verses, forming an integral part of the composition.</rdfs:comment>
         <rdfs:label xml:lang="en">Lyrics</rdfs:label>
     </owl:Class>
     
@@ -869,6 +886,7 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Movement">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CompositionPart"/>
+        <rdfs:comment xml:lang="en">A self-contained section within a larger musical composition, typically found in multi-movement works such as symphonies, sonatas, or concertos. It encompasses a distinct and coherent portion of the composition that is characterized by its own unique musical ideas, structure, and expression.</rdfs:comment>
         <rdfs:label xml:lang="en">Movement</rdfs:label>
     </owl:Class>
     
@@ -878,6 +896,12 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicAlgorithm">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isTrainedOn"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/MusicDataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An algorithm or computational process used in the creation, analysis, or manipulation of music. It encompasses algorithms designed to generate musical compositions, analyze musical patterns, apply effects or transformations to audio, or perform other computational tasks related to music.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Algorithm</rdfs:label>
     </owl:Class>
@@ -887,6 +911,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/MusicAnnotationTimeInterval -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicAnnotationTimeInterval">
+        <rdfs:comment xml:lang="en">A specific interval or duration within a musical composition that is annotated or marked with additional information.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Annotation Time Interval</rdfs:label>
     </owl:Class>
     
@@ -901,9 +926,9 @@
     
 
 
-    <!-- https://w3id.org/polifonia/ontology/music-meta/MusicEnsambleMembership -->
+    <!-- https://w3id.org/polifonia/ontology/music-meta/MusicEnsembleMembership -->
 
-    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicEnsambleMembership">
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicEnsembleMembership">
         <rdfs:comment xml:lang="en">The membership of a musician in a music ensemble. It captures the association between a musician and a specific ensemble, indicating that the musician is a member of the ensemble.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Ensamble Membership</rdfs:label>
     </owl:Class>
@@ -942,6 +967,7 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicSheet">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Score"/>
+        <rdfs:comment xml:lang="en">A physical or printed document that contains the musical notation of a composition. It encompasses the sheet music, which provides a visual representation of the music, including notes, rhythms, lyrics, and other musical symbols.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Sheet</rdfs:label>
     </owl:Class>
     
@@ -950,7 +976,9 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/MusicalPerformance -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicalPerformance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/core/InformationRealization"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
+        <rdfs:comment xml:lang="en">A live or recorded rendition of a musical composition. It encompasses the act of performing music, whether by musicians, singers, or other performers, to convey the intended artistic expression and interpretation of the composition.</rdfs:comment>
         <rdfs:label xml:lang="en">Musical Performance</rdfs:label>
     </owl:Class>
     
@@ -996,6 +1024,7 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Publisher">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/core/Agent"/>
+        <rdfs:comment xml:lang="en">An entity or organization responsible for publishing or distributing musical works, scores, recordings, or other music-related content. It encompasses companies, labels, or individuals that handle the production, promotion, and dissemination of music to the public.</rdfs:comment>
         <rdfs:label xml:lang="en">Publisher</rdfs:label>
     </owl:Class>
     
@@ -1023,6 +1052,7 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
+        <rdfs:comment xml:lang="en">The process of capturing and creating a recorded version of a musical performance or composition. It encompasses the various stages and techniques involved in recording, editing, mixing, and mastering the audio to produce a finalized recording.</rdfs:comment>
         <rdfs:label xml:lang="en">Recording Process</rdfs:label>
     </owl:Class>
     
@@ -1059,6 +1089,7 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Section">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CompositionPart"/>
+        <rdfs:comment xml:lang="en">A distinct and identifiable segment within a musical composition. It encompasses smaller divisions within a composition that contribute to its overall structure, such as verses, choruses, bridges, or any other delineated portions of the music.</rdfs:comment>
         <rdfs:label xml:lang="en">Section</rdfs:label>
     </owl:Class>
     
@@ -1068,6 +1099,7 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/StudioPerformance">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicalPerformance"/>
+        <rdfs:comment xml:lang="en">A musical performance that takes place in a recording studio or controlled environment specifically designed for audio recording. It encompasses the act of performing music with the purpose of capturing high-quality audio for later production, mixing, and mastering.</rdfs:comment>
         <rdfs:label xml:lang="en">Studio Performance</rdfs:label>
     </owl:Class>
     
@@ -1076,6 +1108,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/Text -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Text">
+        <rdfs:comment xml:lang="en">A written or textual component of a musical composition. It encompasses the textual elements, such as lyrics or libretto, that accompany or form part of a musical work.</rdfs:comment>
         <rdfs:label xml:lang="en">Text</rdfs:label>
     </owl:Class>
     
@@ -1084,6 +1117,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/TextFragment -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/TextFragment">
+        <rdfs:comment xml:lang="en">A fragment or excerpt of text within a larger textual component of a musical composition. It encapsulates a specific portion of the lyrics, libretto, or other textual elements associated with the music. A TextFragment provides a smaller unit of textual content that can be individually referenced or analyzed within the context of the composition.</rdfs:comment>
         <rdfs:label xml:lang="en">Text Fragment</rdfs:label>
     </owl:Class>
     
