@@ -77,6 +77,14 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/core/hasAgentRole -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/hasAgentRole">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
+    </rdf:Description>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/core/hasAlias -->
 
     <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/hasAlias">
@@ -147,6 +155,7 @@
     <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/involvesAgent">
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/core/AgentRole"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeAction"/>
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
         <rdfs:comment xml:lang="en">Specifies the involvement of an agent or agents in a particular activity, process, or event. This property represents the relationship between an entity or event and the agent or agents that are actively engaged or participating in it. It indicates that the agent(s) play a role or contribute to the execution, performance, or realization of the associated entity or event.</rdfs:comment>
     </rdf:Description>
@@ -172,6 +181,15 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/core/isInvolvedIn -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/isInvolvedIn">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
+    </rdf:Description>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/core/isMemberOf -->
 
     <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/isMemberOf">
@@ -193,9 +211,10 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/creates -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/creates">
+        <owl:inverseOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isCreatedBy"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
-        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEntity"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEntity"/>
+        <rdfs:comment xml:lang="en">Represents the relationship between a CreativeProcess and the MusicEntity that is produced or brought into existence as a result of the process. It indicates that the CreativeProcess is responsible for generating, composing, producing, or otherwise creating the mentioned MusicEntity.</rdfs:comment>
         <rdfs:label xml:lang="en">Creates</rdfs:label>
     </owl:ObjectProperty>
     
@@ -416,8 +435,11 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/involvesCreativeAction -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/involvesCreativeAction">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/polifonia/ontology/core/involves"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isInvolvedInCreativeProcess"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeAction"/>
+        <rdfs:comment xml:lang="en">Specifies that a CreativeProcess involves a CreativeAction. This property represents the relationship between a CreativeProcess and the CreativeAction that is part of or integral to the process.</rdfs:comment>
         <rdfs:label xml:lang="en">Involves creative action</rdfs:label>
     </owl:ObjectProperty>
     
@@ -453,6 +475,17 @@
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Recording"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation"/>
         <rdfs:label xml:lang="en">Is broadcasted in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/isCreatedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isCreatedBy">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEntity"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
+        <rdfs:comment xml:lang="en">Inverse relationship of &quot;creates.&quot; It indicates that a MusicEntity is created by a specific CreativeProcess. This property establishes the connection from the MusicEntity&apos;s perspective, indicating the creative process that is responsible for the entity&apos;s generation, composition, production, or creation.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is created by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -503,12 +536,12 @@
     
 
 
-    <!-- https://w3id.org/polifonia/ontology/music-meta/isInvolvedIn -->
+    <!-- https://w3id.org/polifonia/ontology/music-meta/isInvolvedInCreativeProcess -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isInvolvedIn">
-        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
-        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
-        <rdfs:comment xml:lang="en">Is involved in</rdfs:comment>
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isInvolvedInCreativeProcess">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/polifonia/ontology/core/isInvolvedIn"/>
+        <rdfs:comment xml:lang="en">Inverse relationship of &quot;involvesCreativeAction.&quot; It indicates that a CreativeAction is involved in a specific CreativeProcess. This property establishes the connection from the CreativeAction&apos;s perspective, indicating its active involvement or participation within the context of the CreativeProcess.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is involved in creative process</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -904,6 +937,42 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/CreativeProcess -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasAgentRole"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/AgentRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/involvesAgent"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/involvesCreativeAction"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeAction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasAgentRole"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/AgentRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/involvesAgent"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/involvesCreativeAction"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeAction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Describes a series of actions, steps, or stages involved in the creative development or production of artistic works, including music. It encompasses the process of generating ideas, exploring concepts, refining techniques, and producing the final creative output. It can include properties such as participants, duration, and output.</rdfs:comment>
         <rdfs:label xml:lang="en">Creative Process</rdfs:label>
     </owl:Class>
@@ -1231,6 +1300,12 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicEntity">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/core/InformationObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isCreatedBy"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">This class represents an Information Object, which is defined as the sum of all the elements that make up a piece of music. A music entity abstract a musical work, as it may results from a composition process, an improvisation, or be the result of non-written transmission.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Entity</rdfs:label>
     </owl:Class>
