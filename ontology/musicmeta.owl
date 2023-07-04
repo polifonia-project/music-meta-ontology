@@ -86,6 +86,25 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/core/hasLanguage -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/hasLanguage">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/core/Alias"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/core/Language"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/core/hasMember -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/hasMember">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicAlgorithm"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Musician"/>
+    </rdf:Description>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/core/hasPart -->
 
     <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/hasPart">
@@ -129,6 +148,7 @@
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/core/AgentRole"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeAction"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:comment xml:lang="en">Specifies the involvement of an agent or agents in a particular activity, process, or event. This property represents the relationship between an entity or event and the agent or agents that are actively engaged or participating in it. It indicates that the agent(s) play a role or contribute to the execution, performance, or realization of the associated entity or event.</rdfs:comment>
     </rdf:Description>
     
 
@@ -138,6 +158,7 @@
     <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/involvesRole">
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/core/AgentRole"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/core/Role"/>
+        <rdfs:comment xml:lang="en">Specifies the involvement of a Role in the context of a MusicEnsembleMembership. It indicates that the Role is actively involved or assigned within the membership of a MusicEnsemble, defining the responsibilities, functions, or positions fulfilled by the member within the ensemble.</rdfs:comment>
     </rdf:Description>
     
 
@@ -147,6 +168,16 @@
     <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/isDerivedFrom">
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEntity"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/core/isMemberOf -->
+
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/isMemberOf">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicAlgorithm"/>
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Musician"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble"/>
     </rdf:Description>
     
 
@@ -183,8 +214,12 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/hasCollaboratedWith -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasCollaboratedWith">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:comment xml:lang="en">Specifies that a MusicArtist has collaborated with another MusicArtist. This property represents the relationship between two MusicArtists who have worked together on a musical project or performance. It indicates that the MusicArtist has engaged in a collaborative effort with the mentioned MusicArtist, indicating a shared creative endeavor, joint performance, or joint contribution to a musical work.</rdfs:comment>
         <rdfs:label xml:lang="en">Has collaborated with</rdfs:label>
     </owl:ObjectProperty>
     
@@ -223,7 +258,11 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/hasGenre -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasGenre">
+        <owl:inverseOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isGenreOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicGenre"/>
         <rdfs:comment xml:lang="en">Has genre</rdfs:comment>
+        <rdfs:comment xml:lang="en">pecifies the genre or genres associated with a MusicArtist. This property represents the relationship between a MusicArtist and the MusicGenre(s) that are attributed or associated with their artistic output or musical style. It indicates the genre(s) that best describe the musical genre(s) or genres in which the MusicArtist operates or specializes.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -384,6 +423,30 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/music-meta/involvesMemberOfMusicEnsemble -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/involvesMemberOfMusicEnsemble">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/polifonia/ontology/core/involvesAgent"/>
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsembleMembership"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:comment xml:lang="en">Specifies the involvement of a MusicArtist as a member of a MusicEnsemble. This property represents the relationship between a MusicEnsembleMembership and the MusicArtist who is actively involved or participates as a member of the ensemble.</rdfs:comment>
+        <rdfs:label xml:lang="en">Involves member of music ensemble</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/involvesMusicEnsemble -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/involvesMusicEnsemble">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/polifonia/ontology/core/involvesAgent"/>
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsembleMembership"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble"/>
+        <rdfs:comment xml:lang="en">Specifies the relationship between a MusicEnsembleMembership and a MusicEnsemble, indicating that the membership involves or includes the specified music ensemble.</rdfs:comment>
+        <rdfs:label xml:lang="en">Involves music ensemble</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/isBroadcastedIn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isBroadcastedIn">
@@ -404,11 +467,37 @@
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/music-meta/isFormationPlaceOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isFormationPlaceOf">
+        <owl:inverseOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/wasFormedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/core/Place"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble"/>
+        <rdfs:comment xml:lang="en">Inverse relationship of &quot;wasFormedIn.&quot; Establishes the connection from the place&apos;s perspective, highlighting its significance as the location where the ensemble was formed or established. It provides information about the historical and geographical association between the place and the formation of music ensembles, emphasizing the role of the place in shaping the ensemble&apos;s origin and identity.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is formation place of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/isGenreOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isGenreOf">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicGenre"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:comment xml:lang="en">Inverse relationship of &quot;hasGenre.&quot; It specifies that a MusicGenre is attributed or associated with a MusicArtist.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is genre of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/isInfluencedBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isInfluencedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:comment xml:lang="en">Specifies that a MusicArtist is influenced by another MusicArtist. This property represents the relationship between a MusicArtist and the MusicArtist(s) who have had a significant impact on their artistic development or musical style. It indicates that the MusicArtist has been influenced by the ideas, techniques, or musical expressions of the mentioned MusicArtist(s), which have played a role in shaping their own musical approach or creative output.</rdfs:comment>
         <rdfs:label xml:lang="en">Is influenced by</rdfs:label>
     </owl:ObjectProperty>
     
@@ -471,9 +560,22 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/isTrainedOn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isTrainedOn">
+        <owl:inverseOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isTrainingOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicAlgorithm"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/core/MusicDataset"/>
+        <rdfs:comment xml:lang="en">Specifies that a MusicAlgorithm has been trained on a specific MusicDataset. This property indicates the relationship between a MusicAlgorithm and the dataset it was trained on, highlighting the input data used to train and develop the algorithm&apos;s functionality and knowledge in the field of music.</rdfs:comment>
         <rdfs:label xml:lang="en">Is trained on</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/isTrainingOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isTrainingOf">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/core/MusicDataset"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicAlgorithm"/>
+        <rdfs:comment xml:lang="en">Inverse relationship of &quot;isTrainedOn.&quot; It indicates that a specific MusicDataset is used as training data for a MusicAlgorithm. The inverse property establishes the connection from the dataset&apos;s perspective, highlighting its role in training and contributing to the development of the algorithm&apos;s functionality and knowledge in the field of music.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is training of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -483,6 +585,7 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/nominatedForAward">
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Award"/>
+        <rdfs:comment xml:lang="en">Represents the relationship between a MusicArtist and the Award for which they have received a nomination. It indicates that the MusicArtist has been recognized or considered for the Award, highlighting their achievement or recognition in the music industry.</rdfs:comment>
         <rdfs:label xml:lang="en">Nominated for award</rdfs:label>
     </owl:ObjectProperty>
     
@@ -503,6 +606,7 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/receivedAward">
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Award"/>
+        <rdfs:comment xml:lang="en">Specifies that a MusicArtist has received a specific Award. It indicates that the MusicArtist has been honored or recognized with the mentioned Award, highlighting their achievement or excellence in the music industry.</rdfs:comment>
         <rdfs:label xml:lang="en">Received award</rdfs:label>
     </owl:ObjectProperty>
     
@@ -513,6 +617,7 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/wasFormedIn">
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/core/Place"/>
+        <rdfs:comment xml:lang="en">Specifies the relationship between a MusicEnsemble and a Place, indicating that the ensemble was formed or established in a particular location. This property highlights the geographical origin or location where the ensemble came into existence or was initially established, providing information about its place of formation.</rdfs:comment>
         <rdfs:label xml:lang="en">Was formed in</rdfs:label>
     </owl:ObjectProperty>
     
@@ -671,15 +776,47 @@
     
 
 
-    <!-- https://w3id.org/polifonia/ontology/core/Person -->
+    <!-- https://w3id.org/polifonia/ontology/core/AgentRole -->
 
-    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/Person"/>
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/AgentRole">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/involvesAgent"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/involvesRole"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/involvesRole"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
     
 
 
-    <!-- https://w3id.org/polifonia/ontology/core/Place -->
+    <!-- https://w3id.org/polifonia/ontology/core/Alias -->
 
-    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/Place"/>
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/Alias">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/name"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
     
 
 
@@ -777,6 +914,7 @@
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/CreativeTask">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/core/Task"/>
+        <rdfs:comment xml:lang="en">A task or assignment involving creative activities in the context of music. It encompasses various activities that require artistic expression, innovation, and imagination to create or develop musical works, performances, compositions, or other creative endeavors.</rdfs:comment>
         <rdfs:label xml:lang="en">Creative Task</rdfs:label>
     </owl:Class>
     
@@ -898,8 +1036,26 @@
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/isMemberOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isTrainedOn"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/MusicDataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/isMemberOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isTrainedOn"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/MusicDataset"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An algorithm or computational process used in the creation, analysis, or manipulation of music. It encompasses algorithms designed to generate musical compositions, analyze musical patterns, apply effects or transformations to audio, or perform other computational tasks related to music.</rdfs:comment>
@@ -920,6 +1076,84 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/MusicArtist -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicArtist">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasMember"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasMember"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Musician"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/isInvolvedIn"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/AgentRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasCollaboratedWith"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasGenre"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicGenre"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isInfluencedBy"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/wasFormedIn"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/Place"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/isInvolvedIn"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/AgentRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasCollaboratedWith"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isInfluencedBy"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/wasFormedIn"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/Place"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/name"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An individual or group involved in creating, performing, or producing music. It encompasses musicians, singers, bands, composers, conductors, producers, and other artistic entities within the music industry.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Artist</rdfs:label>
     </owl:Class>
@@ -929,6 +1163,54 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/MusicEnsembleMembership -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicEnsembleMembership">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasTimeInterval"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/TimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/involvesRole"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/involvesMemberOfMusicEnsemble"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/involvesMusicEnsemble"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasTimeInterval"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/TimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/involvesRole"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/involvesMemberOfMusicEnsemble"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/involvesMusicEnsemble"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The membership of a musician in a music ensemble. It captures the association between a musician and a specific ensemble, indicating that the musician is a member of the ensemble.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Ensamble Membership</rdfs:label>
     </owl:Class>
@@ -948,6 +1230,7 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/MusicEntity -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicEntity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/core/InformationObject"/>
         <rdfs:comment xml:lang="en">This class represents an Information Object, which is defined as the sum of all the elements that make up a piece of music. A music entity abstract a musical work, as it may results from a composition process, an improvisation, or be the result of non-written transmission.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Entity</rdfs:label>
     </owl:Class>
@@ -957,6 +1240,12 @@
     <!-- https://w3id.org/polifonia/ontology/music-meta/MusicGenre -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/MusicGenre">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isGenreOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A specific category or classification of music that shares common characteristics, styles, or cultural origins. It encompasses distinct musical traditions, styles, or movements that define a particular genre.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Genre</rdfs:label>
     </owl:Class>
@@ -989,6 +1278,18 @@
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Musician">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/core/Person"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicArtist"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/isMemberOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/isMemberOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEnsenble"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An individual who is skilled in playing a musical instrument, singing, or composing music. It encompasses instrumentalists, vocalists, composers, conductors, and other individuals actively engaged in the creation, performance, or production of music.</rdfs:comment>
         <rdfs:label xml:lang="en">Musician</rdfs:label>
     </owl:Class>
@@ -1178,12 +1479,12 @@
      -->
 
     <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/music-meta/Instrumentation">
-        <rdfs:label xml:lang="en">Instrumentation</rdfs:label>
         <rdfs:comment xml:lang="en">The arrangement or combination of musical instruments used in a composition, performance, or recording. It describes the specific instruments, their roles, and how they interact to create the overall sound and texture of the music. It can include properties such as instruments used, roles, and techniques.</rdfs:comment>
+        <rdfs:label xml:lang="en">Instrumentation</rdfs:label>
     </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
 
