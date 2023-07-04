@@ -175,6 +175,7 @@
     <!-- https://w3id.org/polifonia/ontology/core/isDerivedFrom -->
 
     <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/isDerivedFrom">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEntity"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEntity"/>
     </rdf:Description>
