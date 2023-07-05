@@ -239,8 +239,10 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <!-- https://w3id.org/polifonia/ontology/music-meta/hasBroadcaster -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasBroadcaster">
+        <owl:inverseOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isBroadcasterOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Broadcaster"/>
+        <rdfs:comment xml:lang="en">Specifies that a BroadcastingSituation involves a specific Broadcaster. This property represents the relationship between a broadcasting situation and the entity responsible for the broadcasting. It indicates that the mentioned BroadcastingSituation is associated with the mentioned Broadcaster, who is responsible for transmitting or airing the content.</rdfs:comment>
         <rdfs:label xml:lang="en">Has broadcaster</rdfs:label>
     </owl:ObjectProperty>
     
@@ -286,8 +288,10 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <!-- https://w3id.org/polifonia/ontology/music-meta/hasEquipement -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasEquipement">
+        <owl:inverseOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isEquipementOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement"/>
+        <rdfs:comment xml:lang="en">Specifies that a RecordingProcess involves a specific RecordingEquipement. This property represents the relationship between a RecordingProcess and the equipment used in the recording process. It indicates that the mentioned RecordingProcess utilizes the mentioned RecordingEquipement for capturing or producing the recorded content.</rdfs:comment>
         <rdfs:label xml:lang="en">Has equipement</rdfs:label>
     </owl:ObjectProperty>
     
@@ -344,10 +348,12 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <!-- https://w3id.org/polifonia/ontology/music-meta/hasLicense -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasLicense">
+        <owl:inverseOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isLicenseOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Recording"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Release"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Score"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/License"/>
+        <rdfs:comment xml:lang="en">Specifies that a Recording, Release, or Score is associated with a specific License. This property represents the relationship between a musical recording, a release of music, or a musical score, and the license that governs its usage and distribution. It indicates that the mentioned Recording, Release, or Score is subject to the terms and conditions defined by the mentioned License.</rdfs:comment>
         <rdfs:label xml:lang="en">Has license</rdfs:label>
     </owl:ObjectProperty>
     
@@ -404,9 +410,11 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <!-- https://w3id.org/polifonia/ontology/music-meta/hasPublicationSituation -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasPublicationSituation">
+        <owl:inverseOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isPublicationSituationOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Release"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Score"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/PublicationSituation"/>
+        <rdfs:comment xml:lang="en">Specifies that a Score or Recording is associated with a specific PublicationSituation. This property represents the relationship between a musical score or recording and the situation or context in which it is published or made publicly available. It indicates that the mentioned Score or Recording is subject to the conditions and circumstances defined by the mentioned PublicationSituation.</rdfs:comment>
         <rdfs:label xml:lang="en">Publication situation</rdfs:label>
     </owl:ObjectProperty>
     
@@ -415,8 +423,10 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <!-- https://w3id.org/polifonia/ontology/music-meta/hasPublisher -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasPublisher">
+        <owl:inverseOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isPublisherOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/PublicationSituation"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Publisher"/>
+        <rdfs:comment xml:lang="en">Specifies that a PublicationSituation involves a specific Publisher. This property represents the relationship between a publication situation and the entity or organization responsible for publishing the content. It indicates that the mentioned PublicationSituation is associated with the mentioned Publisher, who is responsible for releasing or making the content available to the public.</rdfs:comment>
         <rdfs:label xml:lang="en">Has publisher</rdfs:label>
     </owl:ObjectProperty>
     
@@ -492,14 +502,6 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     
 
 
-    <!-- https://w3id.org/polifonia/ontology/music-meta/hasTonic -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasTonic">
-        <rdfs:label xml:lang="en">Has tonic</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/polifonia/ontology/music-meta/involvesCreativeAction -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/involvesCreativeAction">
@@ -542,7 +544,19 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isBroadcastedIn">
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Recording"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation"/>
+        <rdfs:comment xml:lang="en">Specifies that a Recording is broadcasted in a specific BroadcastingSituation. This property represents the relationship between a recorded musical content and the broadcasting situation in which it is aired or transmitted. It indicates that the mentioned Recording is made available to the public through the mentioned BroadcastingSituation.</rdfs:comment>
         <rdfs:label xml:lang="en">Is broadcasted in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/isBroadcasterOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isBroadcasterOf">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Broadcaster"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation"/>
+        <rdfs:comment xml:lang="en">Inverse relationship of &quot;hasBroadcaster.&quot; It indicates that a Broadcaster is associated with a specific BroadcastingSituation. This property establishes the connection from the Broadcaster&apos;s perspective, indicating that they are responsible for broadcasting the content in the mentioned BroadcastingSituation.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is broadcaster of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -577,6 +591,17 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/core/Person"/>
         <rdfs:comment xml:lang="en">Specifies that a DedicationStatement is dedicated to a specific Person. This property represents the relationship between a DedicationStatement, typically found in musical works, and the person or entity to whom the dedication is addressed. It indicates that the DedicationStatement is intended as a tribute or honor to the mentioned Person.</rdfs:comment>
         <rdfs:label xml:lang="en">is dedicated to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/isEquipementOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isEquipementOf">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess"/>
+        <rdfs:comment xml:lang="en">Inverse relationship of &quot;hasEquipement.&quot; It indicates that a RecordingEquipement is associated with a specific RecordingProcess. This property establishes the connection from the RecordingEquipement&apos;s perspective, indicating that it is the equipment used in the mentioned RecordingProcess.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is equipement of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -660,6 +685,19 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     
 
 
+    <!-- https://w3id.org/polifonia/ontology/music-meta/isLicenseOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isLicenseOf">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/License"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Recording"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Release"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Score"/>
+        <rdfs:comment xml:lang="en">Inverse relationship of &quot;hasLicense.&quot; It indicates that a License is associated with a specific Recording, Release, or Score. This property establishes the connection from the License&apos;s perspective, indicating that it governs the usage and distribution of the mentioned Recording, Release, or Score.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is license of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/polifonia/ontology/music-meta/isMediumOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isMediumOf">
@@ -700,9 +738,47 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <!-- https://w3id.org/polifonia/ontology/music-meta/isPartOfRelease -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isPartOfRelease">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/polifonia/ontology/core/isPartOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Recording"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Release"/>
+        <rdfs:comment xml:lang="en">Specifies that a Recording is part of a specific Release. This property represents the relationship between a recorded musical content and the larger release or collection in which it is included. It indicates that the mentioned Recording is a component or part of the mentioned Release.</rdfs:comment>
         <rdfs:label xml:lang="en">Is part of release</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/isProducedByRecordingProcess -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isProducedByRecordingProcess">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/polifonia/ontology/core/isRealizedBy"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/producesRecording"/>
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Recording"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess"/>
+        <rdfs:comment xml:lang="en">Inverse relationship of &quot;producesRecording.&quot; It indicates that a Recording is produced by a specific RecordingProcess. This property establishes the connection from the Recording&apos;s perspective, indicating that it is the result or output of the mentioned RecordingProcess.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is produced by recording process</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/isPublicationSituationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isPublicationSituationOf">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/PublicationSituation"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Recording"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Score"/>
+        <rdfs:comment xml:lang="en">Inverse relationship of &quot;hasPublicationSituation.&quot; It indicates that a PublicationSituation is associated with a specific Score or Recording. This property establishes the connection from the PublicationSituation&apos;s perspective, indicating that it defines the conditions and circumstances under which the mentioned Score or Recording is published or made publicly available.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is publication situation of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/music-meta/isPublisherOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isPublisherOf">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Publisher"/>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/PublicationSituation"/>
+        <rdfs:comment xml:lang="en">Iverse relationship of &quot;hasPublisher.&quot; It indicates that a Publisher is associated with a specific PublicationSituation. This property establishes the connection from the Publisher&apos;s perspective, indicating that they are responsible for publishing the content in the mentioned PublicationSituation.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is publisher of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -764,6 +840,8 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicEntity"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicalPerformance"/>
+        <rdfs:comment xml:lang="en">Inverse relationship of &quot;isRecordedBy.&quot; It indicates that a RecordingProcess is associated with a specific MusicEntity or MusicalPerformance. This property establishes the connection from the RecordingProcess&apos;s perspective, indicating that it is the process responsible for capturing or documenting the mentioned MusicEntity or MusicalPerformance.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is recording process of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -853,6 +931,7 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/producesRecording">
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Recording"/>
+        <rdfs:comment xml:lang="en">pecifies that a RecordingProcess produces a specific Recording. This property represents the relationship between a RecordingProcess and the resulting recorded output. It indicates that the mentioned RecordingProcess is responsible for the creation or production of the mentioned Recording.</rdfs:comment>
         <rdfs:label xml:lang="en">Produces recording</rdfs:label>
     </owl:ObjectProperty>
     
@@ -1225,6 +1304,19 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <!-- https://w3id.org/polifonia/ontology/music-meta/Broadcaster -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Broadcaster">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/core/Agent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isBroadcasterOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isBroadcasterOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A class representing an entity or organization involved in broadcasting or transmitting audio or video content, including music.</rdfs:comment>
         <rdfs:label xml:lang="en">Broadcaster</rdfs:label>
     </owl:Class>
@@ -1234,6 +1326,43 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <!-- https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/core/Situation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasPlace"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/Place"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasTimeInterval"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/TimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasBroadcaster"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Broadcaster"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasPlace"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/Place"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasTimeInterval"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/TimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasBroadcaster"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Broadcaster"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Represents a specific situation or context related to broadcasting activities. It encompasses various scenarios, conditions, or events that may impact the broadcast of music or other content. It can include properties such as location, time, and specific conditions.</rdfs:comment>
         <rdfs:label xml:lang="en">Broadcasting Situation</rdfs:label>
     </owl:Class>
@@ -1896,6 +2025,44 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <!-- https://w3id.org/polifonia/ontology/music-meta/PublicationSituation -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/PublicationSituation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/core/Situation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasPlace"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/Place"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasTimeInterval"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/TimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasPublisher"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Publisher"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasPlace"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/Place"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/hasTimeInterval"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/core/TimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasPublisher"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Publisher"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Descibes the situation or context in which a musical work or recording is published or made publicly available. A PublicationSituation encompasses various aspects related to the publication of music, including the timing, location, medium, format, and associated entities involved in the publication process.</rdfs:comment>
         <rdfs:label xml:lang="en">Publication Situation</rdfs:label>
     </owl:Class>
     
@@ -1905,6 +2072,18 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Publisher">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/core/Agent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isPublisherOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/PublicationSituation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isPublisherOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/PublicationSituation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An entity or organization responsible for publishing or distributing musical works, scores, recordings, or other music-related content. It encompasses companies, labels, or individuals that handle the production, promotion, and dissemination of music to the public.</rdfs:comment>
         <rdfs:label xml:lang="en">Publisher</rdfs:label>
     </owl:Class>
@@ -1914,6 +2093,48 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <!-- https://w3id.org/polifonia/ontology/music-meta/Recording -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Recording">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasLicense"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/License"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isBroadcastedIn"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isPartOfRelease"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Release"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isBroadcastedIn"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/BroadcastingSituation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isPartOfRelease"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Release"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/title"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/title"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A recorded performance or rendition of a musical composition. It refers to the capturing of sound, whether in a studio or live setting, for the purpose of creating a permanent audio representation of a musical performance.</rdfs:comment>
         <rdfs:label xml:lang="en">Recording</rdfs:label>
     </owl:Class>
@@ -1923,6 +2144,18 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <!-- https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isEquipementOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isEquipementOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The equipment and tools used in the process of recording music. It encompasses the various devices, instruments, and technologies employed to capture and produce high-quality audio recordings.</rdfs:comment>
         <rdfs:label xml:lang="en">Recording Equipement</rdfs:label>
     </owl:Class>
@@ -1933,6 +2166,30 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess">
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasEquipement"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/producesRecording"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Recording"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasEquipement"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/producesRecording"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Recording"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The process of capturing and creating a recorded version of a musical performance or composition. It encompasses the various stages and techniques involved in recording, editing, mixing, and mastering the audio to produce a finalized recording.</rdfs:comment>
         <rdfs:label xml:lang="en">Recording Process</rdfs:label>
     </owl:Class>
@@ -1942,6 +2199,36 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <!-- https://w3id.org/polifonia/ontology/music-meta/Release -->
 
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Release">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasLicense"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/License"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasPublicationSituation"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/PublicationSituation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasPublicationSituation"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/PublicationSituation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/title"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/core/title"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The distribution and availability of a recorded musical work to the public. It encompasses the act of officially making a recorded music product, such as an album or single, available for purchase, streaming, or other forms of consumption.</rdfs:comment>
         <rdfs:label xml:lang="en">Release</rdfs:label>
     </owl:Class>
@@ -1953,6 +2240,18 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/Score">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasLicense"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/License"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasPublicationSituation"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/PublicationSituation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasScorePart"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Instrumentation"/>
             </owl:Restriction>
@@ -1961,6 +2260,12 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isScoreOf"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Instrumentation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasPublicationSituation"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/PublicationSituation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
