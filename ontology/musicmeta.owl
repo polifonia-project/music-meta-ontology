@@ -12,7 +12,7 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:terms="http://purl.org/dc/terms/">
-    <owl:Ontology rdf:about="https://w3id.org/polifonia/ontology/music-meta/">
+    <owl:Ontology rdf:about="https://w3id.org/polifonia/ontology/music-meta">
         <owl:versionIRI rdf:resource="https://w3id.org/polifonia/ontology/music-meta/1.0/"/>
         <owl:imports rdf:resource="http://data.doremus.org/ontology#"/>
         <owl:imports rdf:resource="https://w3id.org/polifonia/ontology/core/0.1"/>
