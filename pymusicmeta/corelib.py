@@ -83,7 +83,6 @@ class Person(TripledObject):
         self.supdate(RDF.type, CORE.Person)
 
 
-
 class TimeInterval(TripledObject):
     """
     Encapsulates `https://w3id.org/polifonia/ontology/core/TimeInterval`

@@ -15,4 +15,5 @@ Anything **unclear** or **buggy** in this tutorial? [Please report it!](https://
 
 ## What's next?
 
+- Find the full documentation of Music Meta at [this link](/pylode/music-meta.html)
 - Learn how to use [`pyMusicMeta`](/docs/category/tutorial---extras)
