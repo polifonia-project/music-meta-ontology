@@ -1,5 +1,5 @@
 """
-Create Music Knowledge Graphs via Python, using the Music Meta ontology.
+Create Music Meta Knowledge Graphs via Python, using the Music Meta ontology.
 
 Notes
 -----
@@ -14,14 +14,16 @@ from __future__ import annotations
 import isodate
 import logging
 import argparse
+import dataclasses
 from pathlib import Path
-from typing import Union
+from typing import Union, List
 
-from rdflib import Graph, Literal, Namespace, RDF, RDFS
-from rdflib.namespace import XSD, URIRef
 from tqdm import tqdm
+from rdflib import Graph, Literal, Namespace, RDF, RDFS, XSD, URIRef
 
+from corelib import TripledObject, Place, Person, Alias, TimeInterval
 from genres import MusicGenre
+
 
 logger = logging.getLogger('musicmeta.create')
 
@@ -30,91 +32,69 @@ MM = Namespace('http://w3id.org/polifonia/music-meta/')
 MR = Namespace('http://w3id.org/polifonia/music-representation/')
 
 
-class URIFactory:
-
-    def mint_from_string(self, str: str):
-        raise NotImplementedError()
-
-    def mint_from_file(self, str: Path):
-        raise NotImplementedError()
-
-
-class TripledObject():
-    """
-    General abstraction of a complex object that needs to be described by a
-    number of triples providing complementary information. Utilities provide a
-    way to streamline the creation and the manipulation of triples related to
-    the object until they are added to a Graph.
-    """
-    def __init__(self, uri: str) -> None:
-        self._uri = URIRef(uri)
-        self._triple_store = []
-
-    def update(self, subject, predicate, target):
-        """Add a generic triple to this entity."""
-        self._triple_store.append((subject, predicate, target))
-
-    def supdate(self, predicate, target):
-        """Add a triple to this object with URI as subject."""
-        self._triple_store.append((self._uri, predicate, target))
-
-    def set_uri(self, uri):
-        """Set or rename the URI of this object if no triples created."""
-        if len(self._triple_store) > 0:  # assumes at creation-time
-            raise ValueError("Triples were already added")
-        self._uri = uri
-
-    def merge_to_graph(self, graph: Graph):
-        """Add all triples of this object to the given graph."""
-        for triple in self._triple_store:
-            graph.add(triple)  # using graph as context
-
-
 class Award(TripledObject):
-    def __init__(self, uri: str, name: str = None, year: int = None) -> None:
+    """An award comes with title and year specification."""
+    def __init__(self, uri: str, title: str = None, year: int = None) -> None:
         super().__init__(uri)
+        self.supdate(CORE.hasTitle, Literal(title, datatype=XSD.string))
+        self.supdate(CORE.hasYear, Literal(year, datatype=XSD.year))  # FIXME
+        # TODO An award may have more information/details to include
 
 
 class MusicArtist(TripledObject):
 
-    def __init__(self, uri, alias: Union[str, list] = None, genres: list = [],
-                 influences: list = [], collaborators: list = []) -> None:
+    def __init__(self,
+                 uri : str,
+                 activity_start_date: str = None,
+                 activity_end_date: str = None,
+                 aliases: Union[List[str], List[Alias]] = [],
+                 genres: Union[List[str], List[MusicGenre]] = [],
+                 influences: Union[List[str], List[MusicArtist]] = [],
+                 collaborators: Union[List[str], List[MusicArtist]] = []):
         """
         Creates a generic music artist from the given specifications. If a URI
         for the artist is not available, this should be created before calling
-        this constructor via a `URIFactory`.
+        this constructor via a specialisation of `URIFactory`.
 
         Parameters
         ----------
         uri : str
             Universal Resource Identifier to use for this artist.
-        alias : Union[str, list]
-            A name for this artist, or a list of tuples where each record is of
-            type (alias, language); language is left blank if not available.
+        aliases : Union[List[str], List[Alias]]
+            A list of aliases for this artist, given as URIs or Alias(es).
         genres : list of str | list of `MusicGenre`, optional
-            A list of music genres, preferably borrowed from a taxonomy.
+            A list of music genres, given as URIs or MusicGenre(s)
         influences : list of str | list of `MusicArtist`, optional
-            A list of influential artists (or agents) given as URIs.
+            A list of influential artists given as URIs or MusicArtist(s).
         collaborators : list of str | list of `MusicArtist`, optional
-            A list of collaborators (e.g. other artists/agents), given as URIs.
+            A list of influential collaborators given as URIs or MusicArtist(s).
 
+        Note: AgentRole, Role are still missing in the current implementation.
         """
         super(MusicArtist, self).__init__(uri)  # init triple object
-        self.alias = alias  # FIXME
+        self._activity = dict()
+        self._aliases = set()
         self._genres = set()
         self._influences = set()
         self._collaborations = set()
         # Update the object and its triple store
+        for alias in aliases:
+            self.add_alias(alias)
         for genre in genres:
             self.add_genre(genre)
         for influence in influences:
             self.add_influence(influence)
         for collaborator in collaborators:
             self.add_collaboration(collaborator)
-        self.activity = {"start": None, "end": None}
+        self.add_activity(activity_start_date, activity_end_date)
         # Minting a new URI if required: strategy to parameterise
         self.supdate(RDF.type, CORE.MusicArtist)
-        # self.supdate(CORE.hasAlias, Literal(alias))  # FIXME
+    
+    def add_alias(self, alias:Union[Alias, str]):
+        alias_uri = alias._uri if isinstance(alias, Alias) \
+            else URIRef(alias)  # URI is retrieved from object or assumed
+        self._aliases.add(alias)
+        self.supdate(CORE.hasAlias, alias_uri)
 
     def add_genre(self, genre:Union[MusicGenre, str]):
         genre_uri = genre._uri if isinstance(genre, MusicGenre) \
@@ -138,8 +118,8 @@ class MusicArtist(TripledObject):
         self.update(collaborator_uri, MM.hasCollaboratedWith, self._uri)
 
     def add_activity(self, start_date, end_date=None):
-        self.activity["start"] = start_date
-        self.activity["end"] = end_date
+        self._activity["start"] = start_date
+        self._activity["end"] = end_date
         self.supdate(MM.activityStartDate,
                      Literal(start_date, datatype=XSD.date))
         if end_date is not None:  # an artist that is no longer active
@@ -155,23 +135,113 @@ class MusicArtist(TripledObject):
             raise ValueError(f"Not a supported award type: {award_type}")
 
 
-class MusicEnsemble(MusicArtist):
+class Musician(MusicArtist, Person):
+    """
+    A Musician is a both a MusicArtist and a Person (CORE).
 
-    def __init__(self, uri, alias: str | list = None, genres: list = [],
-                 influences: list = [], collaborators: list = [],
-                 formation_place: str = None) -> None:
-        super().__init__(uri, alias, genres, influences, collaborators)
-        self.supdate(RDF.type, CORE.MusicEnsemble)
+    Notes
+    -----
+    - At the current stage, as per MM, we do not have particular properties
+        extending the specialisation of musician, though we plan to support them
+
+    See also
+    --------
+    - https://github.com/polifonia-project/core-ontology
+
+    """
+    def __init__(self, uri: str, **kwargs):
+        super().__init__(uri, **kwargs)
+        self.supdate(RDF.type, MM.Musician)
+
+
+class MusicAlgorithm(MusicArtist):
+    """
+    A MusicAlgorithm is a specialisation MusicArtist with additional properties
+    that can be registered using the `music-algorithm` and `cometa` ontologies.
+
+    See also
+    --------
+    - https://github.com/polifonia-project/cometa-ontology
+    - https://github.com/polifonia-project/music-algorithm-ontology
+    
+    """
+    def __init__(self, uri: str,
+                 dataset: str = None, **kwargs):
+        super().__init__(uri, **kwargs)
+        self.supdate(RDF.type, MM.MusicAlgorithm)
+        if dataset is not None:
+            self.update(URIRef(dataset), RDF.type, MM.MusicDataset)
+            self.supdate(MM.isTrainedON, URIRef(dataset))
+
+
+class MusicEnsemble(MusicArtist):
+    """
+    A MusicEnsemble generalises over groups, ensembles, orchestras, choirs, etc.
+    Therefore, it is intended to group Musicians.
+
+    Note: currently we would not be able to describe hybrid ensembles.
+
+    """
+    def __init__(self, uri: str,
+                 formation_place: Union[str, Place] = None,
+                 members: List[Union[str, Musician]] = None, **kwargs):
+        """
+        Creates a music ensemble with basic information.
+        """
+        super().__init__(uri, **kwargs)
+        self._members = members
+        self.supdate(RDF.type, MM.MusicEnsemble)
         self.add_formation_place(formation_place)
-        self.members = []
+        for member in members:
+            self.add_member(member)
 
     def add_formation_place(self, formation_place: str):
-        if formation_place is not None:
-            self.formation_place = formation_place
-            self.supdate(MM.wasFormedIn, URIRef(formation_place))  # FIXME
-    
-    def add_artist(self, artist: Union[str, MusicArtist], ):
-        pass
+        self._formation_place = formation_place
+        self.supdate(MM.wasFormedIn, URIRef(formation_place))
+
+    def add_member(self, artist: Union[str, Musician],
+                   membership_start: str = None,
+                   membership_end: str = None,
+                   member_role: str = None):
+        """
+        Add a musician to the ensemble.
+
+        Parameters
+        ----------
+        artist : Union[str, Musician]
+            Either the URI or the relevant class of the member. 
+        membership_start : str, optional
+            The date when the artist joined the ensemble, if available.
+        membership_end : str, optional
+            The data when the artist left the ensemble, if applicable.
+        member_role : str, optional
+            The URI of the role of the artist, e.g. a singer role.
+        """
+        artist_uri = artist._uri if isinstance(artist, MusicArtist) \
+            else URIRef(artist)  # URI is retrieved from object or assumed
+        # Include the simple binary relations first
+        self.supdate(MM.hasMember, artist_uri)
+        self.update(artist_uri, MM.isMemberOf, self._uri)
+        # If more information is provided, we can create the membership
+        # FIXME At the moment the membership URI is based on a simple concat
+        membership_uri = f"Base_resoruce_URI_(TODO)_/MusicEnsembleMembership" \
+                         f"/{self._uri.split('/')[-1]}" \
+                         f"_{self.artist_uri.split('/')[-1]}"
+        for memb_detail in [membership_start, membership_end, member_role]:
+            if memb_detail is not None:
+                pass # membership_uri += memb_detail if
+
+        membership_uri = URIRef(membership_uri)
+        self.update(membership_uri, RDF.type, MM.MusicEnsembleMembership)
+        self.update(membership_uri, MM.involvesMusicEnsemble, self._uri)
+        self.update(membership_uri, MM.hasMemberOfMusicEnsemble, artist_uri)
+        
+        if member_role is not None:
+            self.update(membership_uri, CORE.involvesRole, member_role)
+        if membership_start is not None:
+            timeinterval = TimeInterval(membership_start, membership_end)
+            self.merge_to_graph(timeinterval)  # add interval triples
+            self.update(membership_uri, CORE.hasTimeInterval, timeinterval._uri)
 
 
 class MusicMetaGraph(Graph):

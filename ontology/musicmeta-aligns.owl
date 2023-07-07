@@ -12,7 +12,7 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:terms="http://purl.org/dc/terms/">
-    <owl:Ontology rdf:about="https://w3id.org/polifonia/ontology/music-meta">
+    <owl:Ontology rdf:about="https://w3id.org/polifonia/ontology/music-meta/">
         <owl:versionIRI rdf:resource="https://w3id.org/polifonia/ontology/music-meta/1.0/"/>
         <owl:imports rdf:resource="http://data.doremus.org/ontology#"/>
         <owl:imports rdf:resource="https://w3id.org/polifonia/ontology/core/0.1"/>
@@ -144,13 +144,13 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
 
     <!-- https://w3id.org/polifonia/ontology/core/hasSource -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/core/hasSource">
+    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/hasSource">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Text"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Text"/>
-    </owl:ObjectProperty>
+    </rdf:Description>
     
 
 
@@ -1076,49 +1076,49 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
 
     <!-- http://data.doremus.org/ontology#M14_Medium_Of_Performance -->
 
-    <owl:Class rdf:about="http://data.doremus.org/ontology#M14_Medium_Of_Performance">
+    <rdf:Description rdf:about="http://data.doremus.org/ontology#M14_Medium_Of_Performance">
         <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MediumOfPerformance"/>
-    </owl:Class>
+    </rdf:Description>
     
 
 
     <!-- http://data.doremus.org/ontology#M36_Award -->
 
-    <owl:Class rdf:about="http://data.doremus.org/ontology#M36_Award">
+    <rdf:Description rdf:about="http://data.doremus.org/ontology#M36_Award">
         <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Award"/>
-    </owl:Class>
+    </rdf:Description>
     
 
 
     <!-- http://data.doremus.org/ontology#M4_Key -->
 
-    <owl:Class rdf:about="http://data.doremus.org/ontology#M4_Key">
+    <rdf:Description rdf:about="http://data.doremus.org/ontology#M4_Key">
         <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Key"/>
-    </owl:Class>
+    </rdf:Description>
     
 
 
     <!-- http://data.doremus.org/ontology#M5_Genre -->
 
-    <owl:Class rdf:about="http://data.doremus.org/ontology#M5_Genre">
+    <rdf:Description rdf:about="http://data.doremus.org/ontology#M5_Genre">
         <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicGenre"/>
-    </owl:Class>
+    </rdf:Description>
     
 
 
     <!-- http://erlangen-crm.org/current/E21_Person -->
 
-    <owl:Class rdf:about="http://erlangen-crm.org/current/E21_Person">
+    <rdf:Description rdf:about="http://erlangen-crm.org/current/E21_Person">
         <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/core/Person"/>
-    </owl:Class>
+    </rdf:Description>
     
 
 
     <!-- http://erlangen-crm.org/efrbroo/F9_Place -->
 
-    <owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F9_Place">
+    <rdf:Description rdf:about="http://erlangen-crm.org/efrbroo/F9_Place">
         <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/core/Place"/>
-    </owl:Class>
+    </rdf:Description>
     
 
 
@@ -1163,18 +1163,6 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
             </owl:Restriction>
         </rdfs:subClassOf>
     </rdf:Description>
-    
-
-
-    <!-- https://w3id.org/polifonia/ontology/core/Person -->
-
-    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/Person"/>
-    
-
-
-    <!-- https://w3id.org/polifonia/ontology/core/Place -->
-
-    <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/core/Place"/>
     
 
 
@@ -2478,12 +2466,12 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
      -->
 
     <rdf:Description rdf:about="https://w3id.org/polifonia/ontology/music-meta/Instrumentation">
-        <rdfs:label xml:lang="en">Instrumentation</rdfs:label>
         <rdfs:comment xml:lang="en">The arrangement or combination of musical instruments used in a composition, performance, or recording. It describes the specific instruments, their roles, and how they interact to create the overall sound and texture of the music. It can include properties such as instruments used, roles, and techniques.</rdfs:comment>
+        <rdfs:label xml:lang="en">Instrumentation</rdfs:label>
     </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
 
