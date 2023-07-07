@@ -285,14 +285,14 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     
 
 
-    <!-- https://w3id.org/polifonia/ontology/music-meta/hasEquipement -->
+    <!-- https://w3id.org/polifonia/ontology/music-meta/hasEquipment -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasEquipement">
-        <owl:inverseOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isEquipementOf"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/hasEquipment">
+        <owl:inverseOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isEquipmentOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess"/>
-        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement"/>
-        <rdfs:comment xml:lang="en">Specifies that a RecordingProcess involves a specific RecordingEquipement. This property represents the relationship between a RecordingProcess and the equipment used in the recording process. It indicates that the mentioned RecordingProcess utilizes the mentioned RecordingEquipement for capturing or producing the recorded content.</rdfs:comment>
-        <rdfs:label xml:lang="en">Has equipement</rdfs:label>
+        <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipment"/>
+        <rdfs:comment xml:lang="en">Specifies that a RecordingProcess involves a specific RecordingEquipment. This property represents the relationship between a RecordingProcess and the equipment used in the recording process. It indicates that the mentioned RecordingProcess utilizes the mentioned RecordingEquipment for capturing or producing the recorded content.</rdfs:comment>
+        <rdfs:label xml:lang="en">Has equipment</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -595,13 +595,13 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     
 
 
-    <!-- https://w3id.org/polifonia/ontology/music-meta/isEquipementOf -->
+    <!-- https://w3id.org/polifonia/ontology/music-meta/isEquipmentOf -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isEquipementOf">
-        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/music-meta/isEquipmentOf">
+        <rdfs:domain rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipment"/>
         <rdfs:range rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess"/>
-        <rdfs:comment xml:lang="en">Inverse relationship of &quot;hasEquipement.&quot; It indicates that a RecordingEquipement is associated with a specific RecordingProcess. This property establishes the connection from the RecordingEquipement&apos;s perspective, indicating that it is the equipment used in the mentioned RecordingProcess.</rdfs:comment>
-        <rdfs:label xml:lang="en">Is equipement of</rdfs:label>
+        <rdfs:comment xml:lang="en">Inverse relationship of &quot;hasEquipment.&quot; It indicates that a RecordingEquipment is associated with a specific RecordingProcess. This property establishes the connection from the RecordingEquipment&apos;s perspective, indicating that it is the equipment used in the mentioned RecordingProcess.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is equipment of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -2141,23 +2141,23 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     
 
 
-    <!-- https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement -->
+    <!-- https://w3id.org/polifonia/ontology/music-meta/RecordingEquipment -->
 
-    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement">
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipment">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isEquipementOf"/>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isEquipmentOf"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isEquipementOf"/>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/isEquipmentOf"/>
                 <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingProcess"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The equipment and tools used in the process of recording music. It encompasses the various devices, instruments, and technologies employed to capture and produce high-quality audio recordings.</rdfs:comment>
-        <rdfs:label xml:lang="en">Recording Equipement</rdfs:label>
+        <rdfs:label xml:lang="en">Recording Equipment</rdfs:label>
     </owl:Class>
     
 
@@ -2168,8 +2168,8 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
         <rdfs:subClassOf rdf:resource="https://w3id.org/polifonia/ontology/music-meta/CreativeProcess"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasEquipement"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement"/>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasEquipment"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2180,8 +2180,8 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasEquipement"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipement"/>
+                <owl:onProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasEquipment"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/polifonia/ontology/music-meta/RecordingEquipment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
