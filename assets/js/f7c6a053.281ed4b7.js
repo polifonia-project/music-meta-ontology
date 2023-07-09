@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[978],{9427:e=>{e.exports=JSON.parse('{"label":"hola","permalink":"/music-meta-ontology/blog/tags/hola","allTagsPath":"/music-meta-ontology/blog/tags","count":1}')}}]);

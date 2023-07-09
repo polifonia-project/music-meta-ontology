@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[479],{3023:e=>{e.exports=JSON.parse('{"label":"polifonia","permalink":"/music-meta-ontology/blog/tags/polifonia","allTagsPath":"/music-meta-ontology/blog/tags","count":1}')}}]);
