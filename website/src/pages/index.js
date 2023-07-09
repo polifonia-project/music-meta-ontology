@@ -13,12 +13,12 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className="hero__subtitle">{"⚠️ Documentation has been moved to the website of the Polifonia Ontology Network! ⚠️"}</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Check out the tutorial
+            to="https://polifonia-project.github.io/ontology-network/">
+            Go to our new website
           </Link>
         </div>
       </div>
@@ -32,9 +32,8 @@ export default function Home() {
     <Layout
       title={`${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
       <main>
-        <HomepageFeatures />
+      <HomepageHeader />
       </main>
     </Layout>
   );
