@@ -2,10 +2,11 @@
 Classes and utilities related to the Polifonia CORE ontology module and generala
 abstractions to manipulate tripled objects.
 
-See Also: XXX
+See Also: https://github.com/polifonia-project/core-ontology
 """
 import logging
-import dataclasses
+from typing import Union
+from dataclasses import dataclass
 from typing import List
 
 from rdflib import Graph, Literal, URIRef, Namespace
@@ -56,9 +57,10 @@ class Alias(TripledObject):
         self.supdate(CORE.hasLanguage, Literal(language, datatype=XSD.string))  # FIXME
 
 
-@dataclasses
+@dataclass
 class Place(TripledObject):
     """
+    Encapsulates `https://w3id.org/polifonia/ontology/core/Place`
     TODO
     """
     name: str
@@ -70,9 +72,10 @@ class Place(TripledObject):
         self.supdate(RDF.type, CORE.Place)
 
 
-@dataclasses
+@dataclass
 class Person(TripledObject):
     """
+    Encapsulates `https://w3id.org/polifonia/ontology/core/Person`
     TODO
     """
     bornPlace: Place
@@ -89,7 +92,8 @@ class TimeInterval(TripledObject):
     
     FIXME again, the URI specification
     """
-    def __init__(self, start_time: str, end_time: str) -> None:
+    def __init__(self, start_time: str, end_time: str,
+                 subject: Union[str, TripledObject] = None) -> None:
 
         self._start_time = start_time
         self._end_time = end_time
@@ -98,4 +102,26 @@ class TimeInterval(TripledObject):
         self.supdate(RDF.type, CORE.TimeInterval)
         self.supdate(CORE.startTime, Literal(start_time, datatype=XSD.dateTime))
         self.supdate(CORE.endTime, Literal(end_time, datatype=XSD.dateTime))
-        
+
+        if subject is not None:  # attach to subject
+            self.attach_to_subject(subject)
+    
+    def attach_to_subject(self, subject: Union[str, TripledObject]):
+        """
+        Associates this TimeInterval to the subject entity and updated the
+        triple store of the latter if a `TripledObject` is passed.
+        """
+        self.update(get_uri(subject), CORE.hasTimeInterval, self._uri)
+        if isinstance(subject, TripledObject):
+            self.merge_to_graph(subject)  # add interval triples
+
+
+def get_uri(entity: Union[str, TripledObject]):
+
+    if isinstance(entity, str):  # here we assume that the string is the URI
+        return URIRef(str)
+    if isinstance(entity, TripledObject):  # here we retrieve the URI
+        return entity._uri
+    
+    raise ValueError(f"Could not retrieve a URI from {type(entity)} object")
+

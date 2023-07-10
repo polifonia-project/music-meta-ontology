@@ -21,7 +21,8 @@ from typing import Union, List
 from tqdm import tqdm
 from rdflib import Graph, Literal, Namespace, RDF, RDFS, XSD, URIRef
 
-from corelib import TripledObject, Place, Person, Alias, TimeInterval
+from corelib import TripledObject, Place, Person, Alias, TimeInterval, get_uri
+from individuals import CREATIVE_TASKS
 from genres import MusicGenre
 
 
@@ -118,10 +119,11 @@ class MusicArtist(TripledObject):
         self.update(collaborator_uri, MM.hasCollaboratedWith, self._uri)
 
     def add_activity(self, start_date, end_date=None):
-        self._activity["start"] = start_date
-        self._activity["end"] = end_date
-        self.supdate(MM.activityStartDate,
-                     Literal(start_date, datatype=XSD.date))
+        if start_date is not None:
+            self._activity["start"] = start_date
+            self._activity["end"] = end_date
+            self.supdate(MM.activityStartDate,
+                        Literal(start_date, datatype=XSD.date))
         if end_date is not None:  # an artist that is no longer active
             self.supdate(MM.activityEndDate,
                           Literal(end_date, datatype=XSD.date))
@@ -143,6 +145,7 @@ class Musician(MusicArtist, Person):
     -----
     - At the current stage, as per MM, we do not have particular properties
         extending the specialisation of musician, though we plan to support them
+        e.g. the ability to use a medium of performance, musical training, etc.
 
     See also
     --------
@@ -244,18 +247,79 @@ class MusicEnsemble(MusicArtist):
             self.update(membership_uri, CORE.hasTimeInterval, timeinterval._uri)
 
 
+class CreationProcess(TripledObject):
+
+    def __init__(self, uri: str,
+                 authors: List[Union[str, MusicArtist]]=None,
+                 author_roles: List[str] = None,
+                 process_start_date: str = None,
+                 process_end_date: str = None,
+        ):
+        super().__init__(uri)
+
+        if author_roles is not None:
+            if len(author_roles) != len(authors):
+                raise ValueError(f"Roles do align with author list!")
+        else:  # creating an empty list of roles
+            author_roles = [None] * len(authors)
+
+        self.authors = set()
+        self.creative_actions = list()
+        for author, author_role in zip(authors, author_roles):
+            self.add_author(author, role=author_role)
+        
+        process_timespan = TimeInterval(process_start_date, process_end_date)
+        self.merge_to_graph(process_timespan)  # add interval triples
+        self.update(self._uri, CORE.hasTimeInterval, process_timespan._uri)
+
+    def add_author(self, author: Union[str, MusicArtist], role: str = None):
+        """
+        XXX Author is Agent in the most general sense, not just music artist!
+
+        """
+        author_uri = get_uri(author)
+        self.authors.add(author)  # remember the author
+        self.supdate(CORE.involvesAgent, author_uri)
+        self.update(author_uri, CORE.isInvolvedIn, self._uri)
+        if role is not None:  # create n-ary relationship
+            agent_role_uri = "creative_process_plus_agent_plus_role_TODO"  #TODO
+            self.update(agent_role_uri, RDF.type, CORE.AgentRole)
+            self.update(agent_role_uri, CORE.involvesRole, role)
+            self.update(agent_role_uri, CORE.involvesAgent, author_uri)
+            self.supdate(CORE.hasAgentRole, agent_role_uri)
+    
+    def add_creative_action(self,
+                            authors: List[Union[str, MusicArtist]] = None,
+                            creative_tasks: List[str] = None,
+                            place: Union[str, Place] = None,
+                            action_start_date: str = None,
+                            action_end_date: str = None,
+        ):
+        if not all([c for c in creative_tasks]):  # sanity check on CTs
+            raise ValueError(f"Supported creative tasks: {CREATIVE_TASKS}")
+
+        # URI of CreativeAction can use the other optional info here and we
+        # should check that at least some parameters are not None
+        creative_action_uri = self.uri + "_some_incremental_suffix"  # FIXME
+        self.update(creative_action_uri, RDFS.subClassOf, CORE.TimeIndexedSituation)
+
+        if authors is not None:
+            for author in authors:
+                self.update(creative_action_uri, CORE.involvesAgent, author)
+
+
+
 class MusicMetaGraph(Graph):
     """
     Extension of the rdflib `Graph` class to wrap a Music Meta Knowledge Graph.
     Elements of the graph are expected to be created apriori, using URIs.
     """
-
     def __init__(self, *args, **kwargs):
         super(MusicMetaGraph, self).__init__(*args, **kwargs)
         self.bind("mm", MM)
 
-    def add_artist(self, artist: MusicArtist):
+    def add_tripled_object(self, tripled_object: TripledObject):
         """
-        Add a music artist to the graph.
+        Add a `TripledObject` to this graph.
         """
-        artist.merge_to_graph(self)
+        tripled_object.merge_to_graph(self)
