@@ -32,7 +32,6 @@ Where did the creation process took place?,"PREFIX core: <https://w3id.org/polif
 PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
 SELECT DISTINCT ?place ?creativeProcess
 WHERE {?creativeProcess a/rdfs:subClassOf* mm:CreativeProcess ; core:hasPlace ?place}"
-Which task was executed by a creative action?,
 Which music entity is created during a musical performance?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
 SELECT ?musicEntity ?musicalPerformance
 WHERE {?musicalPerformance a mm:MusicalPerformance ; mm:creates ?musicEntity}"
