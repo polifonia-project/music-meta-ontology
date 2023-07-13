@@ -21,19 +21,27 @@ class TripledObject():
     General abstraction of a complex object that needs to be described by a
     number of triples providing complementary information. Utilities provide a
     way to streamline the creation and the manipulation of triples related to
-    the object until they are added to a Graph.
+    the object until they are added to a Graph. Conceptually, this is akin to
+    ``rdflib.Graph`` although the implementation here is streamlined.
     """
     def __init__(self, uri: str) -> None:
         self._uri = URIRef(uri)
-        self._triple_store = []
+        self._triple_store = set()
 
     def update(self, subject, predicate, target):
         """Add a generic triple to this entity."""
-        self._triple_store.append((subject, predicate, target))  # None Check FIXME
+        if subject is None or target is None:
+            logger.warn(f"Could not add triple {(subject, predicate, target)} "
+                        f" -- subject or object is incomplete")
+            return  # no triple is added and a logger warning is returned
+        self._triple_store.add((subject, predicate, target))
 
     def supdate(self, predicate, target):
         """Add a triple to this object with URI as subject."""
-        self._triple_store.append((self._uri, predicate, target))  # None Check FIXME
+        if target is None:
+            logger.warn(f"Empty target for s-p ({self._uri, predicate})")
+            return  # no triple is added and a logger warning is returned
+        self._triple_store.add((self._uri, predicate, target))
 
     def set_uri(self, uri):
         """Set or rename the URI of this object if no triples created."""
@@ -45,6 +53,17 @@ class TripledObject():
         """Add all triples of this object to the given graph."""
         for triple in self._triple_store:
             graph.add(triple)  # using graph as context
+
+    def include_graph(self, graph):
+        """Add all triples of the given graph object to this graph."""
+        if isinstance(graph, TripledObject):
+            triples = graph._triple_store
+        elif isinstance(graph, Graph):
+            triples = list(graph)
+        else:  # not a valid input type
+            raise ValueError(f"{type(graph)} graph type unsupported")
+        for triple in triples:  # add triples one by one
+            self._triple_store.add(triple)
 
 
 class Alias(TripledObject):

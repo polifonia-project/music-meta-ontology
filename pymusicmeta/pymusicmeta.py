@@ -90,7 +90,7 @@ class MusicArtist(TripledObject):
         self.add_activity(activity_start_date, activity_end_date)
         # Minting a new URI if required: strategy to parameterise
         self.supdate(RDF.type, CORE.MusicArtist)
-    
+
     def add_alias(self, alias:Union[Alias, str]):
         alias_uri = alias._uri if isinstance(alias, Alias) \
             else URIRef(alias)  # URI is retrieved from object or assumed
@@ -182,12 +182,10 @@ class MusicEnsemble(MusicArtist):
     A MusicEnsemble generalises over groups, ensembles, orchestras, choirs, etc.
     Therefore, it is intended to group Musicians.
 
-    Note: currently we would not be able to describe hybrid ensembles.
-
     """
     def __init__(self, uri: str,
                  formation_place: Union[str, Place] = None,
-                 members: List[Union[str, Musician]] = None, **kwargs):
+                 members: List[Union[str, MusicArtist]] = [], **kwargs):
         """
         Creates a music ensemble with basic information.
         """
@@ -205,7 +203,7 @@ class MusicEnsemble(MusicArtist):
     def add_member(self, artist: Union[str, Musician],
                    membership_start: str = None,
                    membership_end: str = None,
-                   member_role: str = None):
+                   member_role: List[str] = []):
         """
         Add a musician to the ensemble.
 
@@ -219,6 +217,8 @@ class MusicEnsemble(MusicArtist):
             The data when the artist left the ensemble, if applicable.
         member_role : str, optional
             The URI of the role of the artist, e.g. a singer role.
+
+        Note: a member can have more than 1 role.
         """
         artist_uri = artist._uri if isinstance(artist, MusicArtist) \
             else URIRef(artist)  # URI is retrieved from object or assumed
@@ -229,7 +229,7 @@ class MusicEnsemble(MusicArtist):
         # FIXME At the moment the membership URI is based on a simple concat
         membership_uri = f"Base_resoruce_URI_(TODO)_/MusicEnsembleMembership" \
                          f"/{self._uri.split('/')[-1]}" \
-                         f"_{self.artist_uri.split('/')[-1]}"
+                         f"_{artist_uri.split('/')[-1]}"
         for memb_detail in [membership_start, membership_end, member_role]:
             if memb_detail is not None:
                 pass # membership_uri += memb_detail if
@@ -238,12 +238,12 @@ class MusicEnsemble(MusicArtist):
         self.update(membership_uri, RDF.type, MM.MusicEnsembleMembership)
         self.update(membership_uri, MM.involvesMusicEnsemble, self._uri)
         self.update(membership_uri, MM.hasMemberOfMusicEnsemble, artist_uri)
-        
+  
         if member_role is not None:
-            self.update(membership_uri, CORE.involvesRole, member_role)
+            self.update(membership_uri, CORE.involvesRole, URIRef(member_role))
         if membership_start is not None:
             timeinterval = TimeInterval(membership_start, membership_end)
-            self.merge_to_graph(timeinterval)  # add interval triples
+            self.include_graph(timeinterval)  # add interval triples
             self.update(membership_uri, CORE.hasTimeInterval, timeinterval._uri)
 
 
@@ -269,7 +269,7 @@ class CreationProcess(TripledObject):
             self.add_author(author, role=author_role)
         
         process_timespan = TimeInterval(process_start_date, process_end_date)
-        self.merge_to_graph(process_timespan)  # add interval triples
+        self.include_graph(process_timespan)  # add interval triples
         self.update(self._uri, CORE.hasTimeInterval, process_timespan._uri)
 
     def add_author(self, author: Union[str, MusicArtist], role: str = None):
