@@ -1,0 +1,172 @@
+Which award has a music artist received a nomination for?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT DISTINCT ?award ?musicArtist
+WHERE {?musicArtist a mm:MusicArtist ; mm:nominatedForAward ?award}"
+Which award has a music artist received?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT DISTINCT ?award ?musicArtist
+WHERE {?musicArtist a mm:MusicArtist ; mm:receivedAward ?award}"
+Which recording is produced during a recording process?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT DISTINCT ?recording ?recordingProcess
+WHERE {?recordingProcess a mm:RecordingProcess ; mm:producesRecording ?recording}"
+Which equipment is involved in a recording process?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT DISTINCT ?equipment ?recordingProcess
+WHERE {?recordingProcess a mm:RecordingProcess ; mm:hasEquipment ?equipment}"
+Which is the recording process that recorded a musical performance?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT DISTINCT ?musicalPerformance ?recordingProcess
+WHERE {?recordingProcess a mm:RecordingProcess ; mm:isRecordingProcessOf ?musicalPerformance . 
+?musicalPerformance a mm:MusicalPerformance .}"
+Which are the agents involved in a creative process? ,"PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT DISTINCT ?agent ?creativeProcess
+WHERE {?creativeProcess a/rdfs:subClassOf* mm:CreativeProcess ; core:involvesAgent ?agent}"
+Which are the creative actions of a creative process?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT DISTINCT ?action ?creativeProcess
+WHERE {?creativeProcess a/rdfs:subClassOf* mm:CreativeProcess ; mm:involvesCreativeAction ?action}"
+Which is the process that led to the creation of a musical piece?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT DISTINCT ?musicEntity ?creativeProcess
+WHERE {?creativeProcess a/rdfs:subClassOf* mm:CreativeProcess ; mm:creates ?musicEntity}"
+When did the creation process took place?,"PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT DISTINCT ?time ?creativeProcess
+WHERE {?creativeProcess a/rdfs:subClassOf* mm:CreativeProcess ; core:hasTimeInterval ?time}"
+Where did the creation process took place?,"PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT DISTINCT ?place ?creativeProcess
+WHERE {?creativeProcess a/rdfs:subClassOf* mm:CreativeProcess ; core:hasPlace ?place}"
+Which task was executed by a creative action?,
+Which music entity is created during a musical performance?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?musicEntity ?musicalPerformance
+WHERE {?musicalPerformance a mm:MusicalPerformance ; mm:creates ?musicEntity}"
+Which person is a dedication statement dedicated to?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?person ?dedication
+WHERE {?dedication a mm:DedicationStatement ; mm:isDedicatedTo ?person}"
+Which is the form type of an abstract score?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?formType ?abstractScore
+WHERE {?abstractScore a mm:AbstractScore ; mm:hasFormType ?formType}"
+Which is the music genre associated with/attributed to a music artist?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?genre ?musicArtist
+WHERE {?musicArtist a mm:MusicArtist ; mm:hasGenre ?genre}"
+Which is the instrumentation associated with an abstract score?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?instrumentation ?abstractScore
+WHERE {?abstractScore a mm:AbstractScore ; mm:hasInstrumentation ?instrumentation}"
+Which is the key an abstract score is composed or written in?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?key ?abstractScore
+WHERE {?abstractScore a mm:AbstractScore ; mm:hasKey ?key}"
+Which is the license of a release?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?license ?release
+WHERE {?release a mm:Release ; mm:hasLicense ?license}"
+Which is the license of a score?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?license ?score
+WHERE {?score a mm:Score ; mm:hasLicense ?license}"
+Which is the license of a recording?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?license ?recording
+WHERE {?recording a mm:Recording ; mm:hasLicense ?license}"
+Which is the opus statement associated with a music entity?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?opusStatement ?musicEntity
+WHERE {?musicEntity a mm:MusicEntity ; mm:hasOpusStatement ?opusStatement}"
+Which is the publisher involved in a publication situation?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?publisher ?publicationSituation
+WHERE {?publicationSituation a mm:PublicationSituation ; mm:hasPublisher ?publisher}"
+When did a publication situation happen?,"PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?time ?publicationSituation
+WHERE {?publicationSituation a mm:PublicationSituation ; core:hasTimeInterval ?time}"
+Where did a publication situation happen?,"PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?place ?publicationSituation
+WHERE {?publicationSituation a mm:PublicationSituation ; core:hasPlace ?place}"
+Which is the recording of a music entity?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?recording ?musicEntity
+WHERE {?musicEntity a mm:MusicEntity ; mm:hasRecording ?recording}"
+Which is the text that is source of another text?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?source ?text
+WHERE {?text a mm:Text ; mm:hasSource ?source . ?source a mm:Text}"
+Which is the text associated with an abstract score?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?text ?abstractScore
+WHERE {?abstractScore a mm:AbstractScore ; mm:hasText ?text . ?text a mm:Text}"
+Which is the broadcaster involved in a broadcasting situation?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?broadcaster ?broadcastingSituation
+WHERE {?broadcastingSituation a mm:BroadcastingSituation ; mm:hasBroadcaster ?broadcaster}"
+When did a broadcasting situation happen?,"PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?time ?broadcastingSituation
+WHERE {?broadcastingSituation a mm:BroadcastingSituation ; core:hasTime ?time}"
+Where did a broadcasting situation happen?,"PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?place ?broadcastingSituation
+WHERE {?broadcastingSituation a mm:BroadcastingSituation ; core:hasPlace ?place}"
+Which music dataset has a music algorithm been trained on?,"PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?dataset ?musicAlgorithm
+WHERE {?musicAlgorithm a mm:MusicAlgorithm ; mm:isTrainedOn ?dataset . ?dataset a core:MusicDataset}"
+Where a music ensemble was formed?,"PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?place ?musicEnsemble
+WHERE {?musicEnsemble a mm:MusicEnsemble ; mm:wasFormedIn ?place . ?place a core:Place}"
+Which music artist has a music artist collaborated with?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?artistA ?artistB
+WHERE {?artistA a mm:MusicArtist ; mm:hasCollaboratedWith ?artistB . ?artistB a mm:MusicArtist}"
+Which music artist was a music artist influenced by?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+SELECT ?artistA ?artistB
+WHERE {?artistA a mm:MusicArtist ; mm:isInfluencedBy ?artistB . ?artistB a mm:MusicArtist}"
+Which role did a music artist play within a music ensemble?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+SELECT DISTINCT ?musicEnsembleMember ?musicEnsembleMemberRole
+WHERE { ?musicEnsembleMember mm:isMemberOfMusicEnsembleInvolvedIn ?musicEnsembleMembership .
+?musicEnsembleMembership rdf:type mm:MusicEnsembleMembership ;
+core:involvesRole ?musicEnsembleMemberRole .
+}"
+In which time interval has a music artist been a member of a music ensemble?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+SELECT DISTINCT ?musicEnsembleMember ?musicEnsembleMemberTime
+WHERE { ?musicEnsembleMember mm:isMemberOfMusicEnsembleInvolvedIn ?musicEnsembleMembership .
+?musicEnsembleMembership rdf:type mm:MusicEnsembleMembership ;
+core:hasTimeInterval ?musicEnsembleMemberTime .
+}"
+Which are the members of a music ensemble?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+SELECT DISTINCT ?musicEnsembleMember
+WHERE { ?musicEnsembleMember core:isMemberOf ?musicEnsemble .
+?musicEnsemble a mm:MusicEnsemble .
+}"
+Which is the start date of the activity of a music artist?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+SELECT DISTINCT ?startDate ?musicArtist
+WHERE { ?musicArtist core:activityStartDate ?startDate .
+?musicArtist a mm:MusicArtist .
+}"
+Which is the end date of the activity of a music artist?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+SELECT DISTINCT ?endDate ?musicArtist
+WHERE { ?musicArtist core:activityEndDate ?endDate .
+?musicArtist a mm:MusicArtist .
+}"
+Which is the name of a music artist?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+SELECT DISTINCT ?name ?musicArtist
+WHERE { ?musicArtist core:name ?name .
+?musicArtist a mm:MusicArtist .
+}"
+Which is the alias of a music artist?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+SELECT DISTINCT ?alias ?musicArtist
+WHERE { ?musicArtist core:hasAlias ?alias .
+?musicArtist a mm:MusicArtist .
+}"
+Which is the language of the name/alias of a music artist?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+SELECT DISTINCT ?nameAlias ?musicArtist
+WHERE {
+{ ?musicArtist core:hasAlias ?nameAlias .
+?musicArtist a mm:MusicArtist .
+}
+UNION
+{ ?musicArtist core:hasName ?nameAlias .
+?musicArtist a mm:MusicArtist .
+}
+}"
+Which are the parts of a music entity?,"PREFIX mm: <https://w3id.org/polifonia/ontology/music-meta/>
+PREFIX core: <https://w3id.org/polifonia/ontology/core/>
+SELECT DISTINCT ?part ?musicEntity
+WHERE { ?musicEntity mm:hasMusicEntityPart ?part .
+?musicEntity a mm:MusicEntity .
+}"
