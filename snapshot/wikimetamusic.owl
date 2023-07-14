@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/polifonia/ontology/wikimeta-music/"
+     xml:base="https://w3id.org/polifonia/ontology/wikimeta-music/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:core="https://w3id.org/polifonia/ontology/core/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/">
+        <owl:versionIRI rdf:resource="https://w3id.org/polifonia/ontology/wikimeta-music/1.0/"/>
+        <dc:creator xml:lang="en">Andrea Poltronieri</dc:creator>
+        <dc:creator xml:lang="en">Jacopo de Berardinis</dc:creator>
+        <dc:creator xml:lang="en">Nicolas Lazzari</dc:creator>
+        <dc:creator xml:lang="en">Valentina Carriero</dc:creator>
+        <dc:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/"/>
+        <terms:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/"/>
+        <rdfs:comment xml:lang="en">A selection of classes and properties related to music that are extracted from the Wikidata Music Project.</rdfs:comment>
+        <rdfs:label xml:lang="en">Wikimeta Music Ontology</rdfs:label>
+        <owl:priorVersion xml:lang="en">1.0</owl:priorVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P10855 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P10855">
+        <rdfs:label xml:lang="en">opus number</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P10855</rdfs:seeAlso>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P136 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P136">
+        <rdfs:label xml:lang="en">genre</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P136</rdfs:seeAlso>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P1476 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P1476">
+        <rdfs:label xml:lang="en">title</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P1476</rdfs:seeAlso>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P2635 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P2635">
+        <rdfs:label xml:lang="en">number of parts of this work</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P2635</rdfs:seeAlso>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P4969 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P4969">
+        <rdfs:label xml:lang="en">derivative work</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P4969</rdfs:seeAlso>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P527 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P527">
+        <rdfs:label xml:lang="en">has part(s)</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P527</rdfs:seeAlso>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P7937 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P7937">
+        <rdfs:label xml:lang="en">form of creative work</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P7937</rdfs:seeAlso>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P826 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P826">
+        <rdfs:label xml:lang="en">tonality</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P826</rdfs:seeAlso>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P86 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P86">
+        <rdfs:label xml:lang="en">composer</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P86</rdfs:seeAlso>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P870 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P870">
+        <rdfs:label xml:lang="en">instrumentation</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P870</rdfs:seeAlso>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q105543609 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q105543609">
+        <rdfs:label xml:lang="en">Composition</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q105543609</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q11895763 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q11895763">
+        <rdfs:label xml:lang="en">Music Composing</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q11895763</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q1294626 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q1294626">
+        <rdfs:label xml:lang="en">Music Artist</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q1294626</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q131084 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q131084">
+        <rdfs:label xml:lang="en">Libretto</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q131084</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q13557414 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q13557414">
+        <rdfs:comment xml:lang="en">Recording here is intended as a process rather than an artifact</rdfs:comment>
+        <rdfs:label xml:lang="en">Recording</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q13557414</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q15265344 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q15265344">
+        <rdfs:label xml:lang="en">Broadcaster</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q15265344</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q187947 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q187947">
+        <rdfs:label xml:lang="en">Sheet Music</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q187947</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q188451 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q188451">
+        <rdfs:label xml:lang="en">Music Genre</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q188451</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q189214 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q189214">
+        <rdfs:label xml:lang="en">Tempo</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q189214</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q1898184 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q1898184">
+        <rdfs:label xml:lang="en">Dedication</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q1898184</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q2031291 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q2031291">
+        <rdfs:label xml:lang="en">Musical Release</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q2031291</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q2085381 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q2085381">
+        <rdfs:label xml:lang="en">Publisher</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q2085381</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q2088357 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q2088357">
+        <rdfs:label xml:lang="en">Music Ensemble</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q2088357</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q215380 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q215380">
+        <rdfs:label xml:lang="en">Music Group</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q215380</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q2188189 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q2188189">
+        <rdfs:label xml:lang="en">Musical Work</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q2188189</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q234460 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q234460">
+        <rdfs:label xml:lang="en">Text</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q234460</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q263478 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q263478">
+        <rdfs:label xml:lang="en">Note</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q263478</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q3302947 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q3302947">
+        <rdfs:label xml:lang="en">Audio Recording</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q3302947</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q602446 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q602446">
+        <rdfs:label xml:lang="en">Lyrics</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q602446</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q618779 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q618779">
+        <rdfs:label xml:lang="en">Award</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q618779</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q639669 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q639669">
+        <rdfs:label xml:lang="en">Musician</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q639669</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q6942562 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q6942562">
+        <rdfs:label xml:lang="en">Musical Performance</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q6942562</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q79719 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q79719">
+        <rdfs:label xml:lang="en">License</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q79719</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q862597 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q862597">
+        <rdfs:label xml:lang="en">Musical Form</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q862597</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/Q929848 -->
+
+    <owl:Class rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/Q929848">
+        <rdfs:label xml:lang="en">Movement</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Q929848</rdfs:seeAlso>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
