@@ -43,6 +43,13 @@ class TripledObject():
             return  # no triple is added and a logger warning is returned
         self._triple_store.add((self._uri, predicate, target))
 
+    def tupdate(self, subject, predicate):
+        """Add a triple to this object with URI as target."""
+        if subject is None:
+            logger.warn(f"Empty subject for s-p ({self._uri, predicate})")
+            return  # no triple is added and a logger warning is returned
+        self._triple_store.add((subject, predicate, self._uri))
+
     def set_uri(self, uri):
         """Set or rename the URI of this object if no triples created."""
         if len(self._triple_store) > 0:  # assumes at creation-time
@@ -138,7 +145,7 @@ class TimeInterval(TripledObject):
 def get_uri(entity: Union[str, TripledObject]):
 
     if isinstance(entity, str):  # here we assume that the string is the URI
-        return URIRef(str)
+        return URIRef(entity)
     if isinstance(entity, TripledObject):  # here we retrieve the URI
         return entity._uri
     

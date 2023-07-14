@@ -108,7 +108,7 @@ class MusicArtist(TripledObject):
             else URIRef(artist)  # URI is retrieved from object or assumed
         self._influences.add(artist)
         self.supdate(MM.isInfluencedBy, influence_uri)
-        self.update(influence_uri, MM.influenced, self._uri)
+        self.tupdate(influence_uri, MM.influenced)
 
     def add_collaboration(self, artist):
         collaborator_uri = artist._uri if isinstance(artist, MusicArtist) \
@@ -116,7 +116,7 @@ class MusicArtist(TripledObject):
         self._collaborations.add(collaborator_uri)
         self.supdate(MM.hasCollaboratedWith, artist)
         # XXX if collabs are symmetric, then this triple is not needed
-        self.update(collaborator_uri, MM.hasCollaboratedWith, self._uri)
+        self.tupdate(collaborator_uri, MM.hasCollaboratedWith)
 
     def add_activity(self, start_date, end_date=None):
         if start_date is not None:
@@ -224,7 +224,7 @@ class MusicEnsemble(MusicArtist):
             else URIRef(artist)  # URI is retrieved from object or assumed
         # Include the simple binary relations first
         self.supdate(MM.hasMember, artist_uri)
-        self.update(artist_uri, MM.isMemberOf, self._uri)
+        self.tupdate(artist_uri, MM.isMemberOf)
         # If more information is provided, we can create the membership
         # FIXME At the moment the membership URI is based on a simple concat
         membership_uri = f"Base_resoruce_URI_(TODO)_/MusicEnsembleMembership" \
@@ -247,19 +247,19 @@ class MusicEnsemble(MusicArtist):
             self.update(membership_uri, CORE.hasTimeInterval, timeinterval._uri)
 
 
-class CreationProcess(TripledObject):
+class CreativeProcess(TripledObject):
 
     def __init__(self, uri: str,
-                 authors: List[Union[str, MusicArtist]]=None,
-                 author_roles: List[str] = None,
+                 authors: List[Union[str, MusicArtist]]=[],
+                 author_roles: List[str] = [],
                  process_start_date: str = None,
                  process_end_date: str = None,
         ):
         super().__init__(uri)
 
-        if author_roles is not None:
+        if len(author_roles) > 0:
             if len(author_roles) != len(authors):
-                raise ValueError(f"Roles do align with author list!")
+                raise ValueError(f"Roles do not align with author list!")
         else:  # creating an empty list of roles
             author_roles = [None] * len(authors)
 
@@ -267,27 +267,27 @@ class CreationProcess(TripledObject):
         self.creative_actions = list()
         for author, author_role in zip(authors, author_roles):
             self.add_author(author, role=author_role)
-        
+
         process_timespan = TimeInterval(process_start_date, process_end_date)
         self.include_graph(process_timespan)  # add interval triples
-        self.update(self._uri, CORE.hasTimeInterval, process_timespan._uri)
+        self.supdate(CORE.hasTimeInterval, process_timespan._uri)
+        self.supdate(RDF.type, CORE.TimeIndexedSituation)
 
     def add_author(self, author: Union[str, MusicArtist], role: str = None):
         """
-        XXX Author is Agent in the most general sense, not just music artist!
-
+        Note: Author is Agent in the most general sense, not just music artist
         """
         author_uri = get_uri(author)
         self.authors.add(author)  # remember the author
         self.supdate(CORE.involvesAgent, author_uri)
-        self.update(author_uri, CORE.isInvolvedIn, self._uri)
+        self.tupdate(author_uri, CORE.isInvolvedIn)
         if role is not None:  # create n-ary relationship
-            agent_role_uri = "creative_process_plus_agent_plus_role_TODO"  #TODO
+            agent_role_uri = URIRef("creative_proc_plus_agent_plus_role_TODO")  #TODO
             self.update(agent_role_uri, RDF.type, CORE.AgentRole)
-            self.update(agent_role_uri, CORE.involvesRole, role)
+            self.update(agent_role_uri, CORE.involvesRole, URIRef(role))
             self.update(agent_role_uri, CORE.involvesAgent, author_uri)
             self.supdate(CORE.hasAgentRole, agent_role_uri)
-    
+
     def add_creative_action(self,
                             authors: List[Union[str, MusicArtist]] = None,
                             creative_tasks: List[str] = None,
