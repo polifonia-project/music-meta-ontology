@@ -34,8 +34,13 @@
 We follow eXtreme Design methodologies and best practices for data engineering, to reflect the perspectives and the requirements of various stakeholders into the design of the model, while leveraging ontology design patterns and accounting for provenance at different levels (claims, links).
 Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS, and Wikidata.</rdfs:comment>
         <rdfs:label xml:lang="en">Music Meta Ontology</rdfs:label>
+        <dc:title xml:lang="en">Music Meta Ontology</dc:title>
+        <dc:description ml:lang="en">The Music Meta ontology is a rich and flexible semantic model to describe music metadata related to artists, compositions, performances, recordings, and links. 
+We follow eXtreme Design methodologies and best practices for data engineering, to reflect the perspectives and the requirements of various stakeholders into the design of the model, while leveraging ontology design patterns and accounting for provenance at different levels (claims, links).
+Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS, and Wikidata.</dc:description>
         <owl:versionInfo xml:lang="en">1.0</owl:versionInfo>
         <terms:modified>"2023-07-17"^^xsd:date</terms:modified>
+        <terms:issued>"2023-04-12"^^xsd:date</terms:modified>
         <vann:preferredNamespacePrefix>mm:</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/polifonia/ontology/music-meta/</vann:preferredNamespaceUri>
     </owl:Ontology>
