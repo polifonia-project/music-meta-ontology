@@ -68,7 +68,104 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P10855 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P10855">
+        <rdfs:label xml:lang="en">opus number</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P10855</rdfs:seeAlso>
+        <owl:equivalentProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/opusNumber"/>
+    </owl:ObjectProperty>
     
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P136 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P136">
+        <rdfs:label xml:lang="en">genre</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P136</rdfs:seeAlso>
+        <owl:equivalentProperty rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasGenre"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P1476 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P1476">
+        <rdfs:label xml:lang="en">title</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P1476</rdfs:seeAlso>
+        <owl:equivalentProperty rdf:resource="https://w3id.org/polifonia/ontology/core/title"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P2635 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P2635">
+        <rdfs:label xml:lang="en">number of parts of this work</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P2635</rdfs:seeAlso>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P4969 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P4969">
+        <rdfs:label xml:lang="en">derivative work</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P4969</rdfs:seeAlso>
+        <owl:equivalentProperty rdf:resource="https://w3id.org/polifonia/ontology/core/isDerivedFrom"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P527 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P527">
+        <rdfs:label xml:lang="en">has part(s)</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P527</rdfs:seeAlso>
+        <skos:relatedMatch rdf:resource="https://w3id.org/polifonia/ontology/core/hasPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P7937 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P7937">
+        <rdfs:label xml:lang="en">form of creative work</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P7937</rdfs:seeAlso>
+        <skos:relatedMatch rdf:resource="https://w3id.org/polifonia/ontology/core/hasFormType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P826 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P826">
+        <rdfs:label xml:lang="en">tonality</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P826</rdfs:seeAlso>
+        <skos:relatedMatch rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasKey"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P86 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P86">
+        <rdfs:label xml:lang="en">composer</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P86</rdfs:seeAlso>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/polifonia/ontology/wikimeta-music/P870 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/polifonia/ontology/wikimeta-music/P870">
+        <rdfs:label xml:lang="en">instrumentation</rdfs:label>
+        <rdfs:seeAlso xml:lang="en">https://www.wikidata.org/wiki/Property:P870</rdfs:seeAlso>
+        <skos:relatedMatch rdf:resource="https://w3id.org/polifonia/ontology/music-meta/hasInstrumentation"/>
+    </owl:ObjectProperty>
+
 
 
     <!-- https://w3id.org/polifonia/ontology/core/executesTask -->
