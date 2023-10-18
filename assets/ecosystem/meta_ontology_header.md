@@ -3,8 +3,8 @@ component-id: https://w3id.org/polifonia/ontology/music-meta/
 type: Ontology
 name: Music Meta
 description: An ontology to describe music metadata
-image: diagrams/music_meta.png
-logo: website/static/img/musicmeta_logo.png
+image: https://github.com/polifonia-project/music-meta-ontology/raw/main/diagrams/music_meta.png
+logo: https://github.com/polifonia-project/music-meta-ontology/blob/main/website/static/img/musicmeta_logo.png
 work-package:
 - WP2
 pilot:
