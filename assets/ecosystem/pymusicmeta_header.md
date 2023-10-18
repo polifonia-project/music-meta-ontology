@@ -3,7 +3,7 @@ component-id: pymusicmeta
 type: Software
 name: pymusicmeta
 description: A library to create Music Meta resources on the Web.
-logo: website/static/img/musicmeta_logo.png
+logo: https://github.com/polifonia-project/music-meta-ontology
 work-package:
 - WP2
 pilot:
