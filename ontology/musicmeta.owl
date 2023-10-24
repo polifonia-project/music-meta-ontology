@@ -20,6 +20,8 @@
      xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/polifonia/ontology/music-meta">
         <owl:versionIRI rdf:resource="https://w3id.org/polifonia/ontology/music-meta/1.0/"/>
+        <owl:imports rdf:resource="http://data.doremus.org/ontology#"/>
+        <owl:imports rdf:resource="http://purl.org/ontology/mo/"/>
         <owl:imports rdf:resource="https://w3id.org/polifonia/ontology/core/0.1"/>
         <dc:creator xml:lang="en">Andrea Poltronieri</dc:creator>
         <dc:creator xml:lang="en">Jacopo de Berardinis</dc:creator>
@@ -1085,6 +1087,55 @@ Music Meta provides alignments to other schema, such as Music Ontology, DOREMUS,
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://data.doremus.org/ontology#M14_Medium_Of_Performance -->
+
+    <owl:Class rdf:about="http://data.doremus.org/ontology#M14_Medium_Of_Performance">
+        <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MediumOfPerformance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.doremus.org/ontology#M36_Award -->
+
+    <owl:Class rdf:about="http://data.doremus.org/ontology#M36_Award">
+        <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Award"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.doremus.org/ontology#M4_Key -->
+
+    <owl:Class rdf:about="http://data.doremus.org/ontology#M4_Key">
+        <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/music-meta/Key"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.doremus.org/ontology#M5_Genre -->
+
+    <owl:Class rdf:about="http://data.doremus.org/ontology#M5_Genre">
+        <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/music-meta/MusicGenre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://erlangen-crm.org/current/E21_Person -->
+
+    <owl:Class rdf:about="http://erlangen-crm.org/current/E21_Person">
+        <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/core/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://erlangen-crm.org/efrbroo/F9_Place -->
+
+    <owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F9_Place">
+        <owl:equivalentClass rdf:resource="https://w3id.org/polifonia/ontology/core/Place"/>
+    </owl:Class>
+    
 
 
     <!-- https://w3id.org/polifonia/ontology/core/AgentRole -->
