@@ -24,6 +24,8 @@ from rdflib import Graph, Literal, Namespace, RDF, RDFS, XSD, URIRef
 from corelib import TripledObject, Place, Person, Alias, TimeInterval, get_uri
 from individuals import CREATIVE_TASKS
 from genres import MusicGenre
+from exceptions import DuplicatedRecord
+from utils import uri_join, recontextaulise_uri
 
 
 logger = logging.getLogger('musicmeta.create')
@@ -92,27 +94,26 @@ class MusicArtist(TripledObject):
         self.supdate(RDF.type, CORE.MusicArtist)
 
     def add_alias(self, alias:Union[Alias, str]):
-        alias_uri = alias._uri if isinstance(alias, Alias) \
-            else URIRef(alias)  # URI is retrieved from object or assumed
+        if isinstance(alias, str):
+            alias = Alias(alias)
         self._aliases.add(alias)
-        self.supdate(CORE.hasAlias, alias_uri)
+        self.supdate(CORE.hasAlias, alias._uri)
 
     def add_genre(self, genre:Union[MusicGenre, str]):
-        genre_uri = genre._uri if isinstance(genre, MusicGenre) \
-            else URIRef(genre)  # URI is retrieved from object or assumed
+        if isinstance(genre, str):
+            genre = MusicGenre(genre)
         self._genres.add(genre)
-        self.supdate(MM.hasGenre, genre_uri)
+        self.supdate(MM.hasGenre, genre._uri)
 
     def add_influence(self, artist:Union[MusicArtist, str]):
-        influence_uri = artist._uri if isinstance(artist, MusicArtist) \
-            else URIRef(artist)  # URI is retrieved from object or assumed
+        if isinstance(artist, str):
+            artist = MusicArtist(artist)
         self._influences.add(artist)
-        self.supdate(MM.isInfluencedBy, influence_uri)
-        self.tupdate(influence_uri, MM.influenced)
+        self.supdate(MM.isInfluencedBy, artist._uri)
+        self.tupdate(artist._uri, MM.influenced)
 
     def add_collaboration(self, artist):
-        collaborator_uri = artist._uri if isinstance(artist, MusicArtist) \
-            else URIRef(artist)  # URI is retrieved from object or assumed
+        collaborator_uri = get_uri(artist)
         self._collaborations.add(collaborator_uri)
         self.supdate(MM.hasCollaboratedWith, artist)
         # XXX if collabs are symmetric, then this triple is not needed
@@ -180,8 +181,7 @@ class MusicAlgorithm(MusicArtist):
 class MusicEnsemble(MusicArtist):
     """
     A MusicEnsemble generalises over groups, ensembles, orchestras, choirs, etc.
-    Therefore, it is intended to group Musicians.
-
+    Therefore, it is intended to group Musicians and Music Algorithms.
     """
     def __init__(self, uri: str,
                  formation_place: Union[str, Place] = None,
@@ -193,19 +193,23 @@ class MusicEnsemble(MusicArtist):
         self._members = members
         self.supdate(RDF.type, MM.MusicEnsemble)
         self.add_formation_place(formation_place)
+        # Adding members requires creating memberships
+        self._memberships = []
         for member in members:
             self.add_member(member)
 
-    def add_formation_place(self, formation_place: str):
+    def add_formation_place(self, formation_place: Union[str, Place]):
         self._formation_place = formation_place
-        self.supdate(MM.wasFormedIn, URIRef(formation_place))
+        self.supdate(MM.wasFormedIn, get_uri(formation_place))
 
     def add_member(self, artist: Union[str, Musician],
                    membership_start: str = None,
                    membership_end: str = None,
                    member_role: List[str] = []):
         """
-        Add a musician to the ensemble.
+        Add a music artist to the ensemble, with more granular control.
+        A memembership URI is minted using the MusicEnsemble URI together with
+        all the other specific information that is optionally provided.
 
         Parameters
         ----------
@@ -220,25 +224,24 @@ class MusicEnsemble(MusicArtist):
 
         Note: a member can have more than 1 role.
         """
-        artist_uri = artist._uri if isinstance(artist, MusicArtist) \
-            else URIRef(artist)  # URI is retrieved from object or assumed
-        # Include the simple binary relations first
-        self.supdate(MM.hasMember, artist_uri)
-        self.tupdate(artist_uri, MM.isMemberOf)
+        artist_uri = get_uri(artist)
+        # Include the simple binary relations
+        if artist_uri not in self._members:
+            self.supdate(MM.hasMember, artist_uri)
+            self.tupdate(artist_uri, MM.isMemberOf)
         # If more information is provided, we can create the membership
-        # FIXME At the moment the membership URI is based on a simple concat
-        membership_uri = f"Base_resoruce_URI_(TODO)_/MusicEnsembleMembership" \
-                         f"/{self._uri.split('/')[-1]}" \
-                         f"_{artist_uri.split('/')[-1]}"
-        for memb_detail in [membership_start, membership_end, member_role]:
-            if memb_detail is not None:
-                pass # membership_uri += memb_detail if
+        membership_uri = recontextaulise_uri(
+            self._uri, "MusicEnsembleMembership",
+            artist_uri, membership_start, membership_end, member_role)
 
         membership_uri = URIRef(membership_uri)
+        if membership_uri in self._memberships:
+            raise DuplicatedRecord(f"Membership already exist: {membership_uri}")
+        # Safe to go ahead and add membership-specific information
         self.update(membership_uri, RDF.type, MM.MusicEnsembleMembership)
         self.update(membership_uri, MM.involvesMusicEnsemble, self._uri)
         self.update(membership_uri, MM.hasMemberOfMusicEnsemble, artist_uri)
-  
+
         if member_role is not None:
             self.update(membership_uri, CORE.involvesRole, URIRef(member_role))
         if membership_start is not None:
@@ -306,6 +309,37 @@ class CreativeProcess(TripledObject):
         if authors is not None:
             for author in authors:
                 self.update(creative_action_uri, CORE.involvesAgent, author)
+
+
+class MusicEntity(TripledObject):
+
+    def __init__(self,
+                uri : str,
+                title: str,
+                creative_process: CreativeProcess = None,
+                genres: Union[List[str], List[MusicGenre]] = [],
+                creators: Union[List[str], List[MusicArtist]] = []):
+        """
+        """
+        super().__init__(uri)
+
+        self.supdate(RDF.type, MM.MusicEntity)
+        self.supdate(RDF.hasTitle, Literal(title, datatype=XSD.string))
+
+        if creative_process is not None:
+            creative_process.supdate(MM.creates, self._uri)
+        for genre in genres:
+            self.add_genre(genre)
+        for artist in creators:
+            self.tupdate(get_uri(artist), MM.isCreatorOf)
+
+
+    def add_derivation(self, music_entity: Union[str, MusicEntity],
+                       derivation_type: str):
+
+        self.supdate(MM.isDerivedFrom, get_uri(music_entity))
+
+
 
 
 
