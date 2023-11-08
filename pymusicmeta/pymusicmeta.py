@@ -25,7 +25,7 @@ from corelib import TripledObject, Place, Person, Alias, TimeInterval, get_uri
 from individuals import CREATIVE_TASKS
 from genres import MusicGenre
 from exceptions import DuplicatedRecord
-from utils import uri_join, recontextaulise_uri
+from utils import recontextaulise_uri
 
 
 logger = logging.getLogger('musicmeta.create')
@@ -253,62 +253,92 @@ class MusicEnsemble(MusicArtist):
 class CreativeProcess(TripledObject):
 
     def __init__(self, uri: str,
-                 authors: List[Union[str, MusicArtist]]=[],
+                 authors: List[Union[str, MusicArtist]] = [],
                  author_roles: List[str] = [],
                  process_start_date: str = None,
                  process_end_date: str = None,
         ):
         super().__init__(uri)
-
-        if len(author_roles) > 0:
-            if len(author_roles) != len(authors):
+        self.supdate(RDF.type, MM.CreativeProcess)
+        no_author_roles = len(author_roles)
+        if no_author_roles > 0:  # this is a shortcut thet expects alignment
+            if no_author_roles > 0 and no_author_roles != len(authors):
                 raise ValueError(f"Roles do not align with author list!")
-        else:  # creating an empty list of roles
-            author_roles = [None] * len(authors)
 
         self.authors = set()
         self.creative_actions = list()
         for author, author_role in zip(authors, author_roles):
-            self.add_author(author, role=author_role)
+            self.add_author(author, roles=[author_role])
 
         process_timespan = TimeInterval(process_start_date, process_end_date)
         self.include_graph(process_timespan)  # add interval triples
         self.supdate(CORE.hasTimeInterval, process_timespan._uri)
         self.supdate(RDF.type, CORE.TimeIndexedSituation)
 
-    def add_author(self, author: Union[str, MusicArtist], role: str = None):
+    def add_author(self, author: Union[str, URIRef, MusicArtist],
+                   roles: List[Union[str, URIRef]] = []):
         """
-        Note: Author is Agent in the most general sense, not just music artist
+        Add a music artist to the creative process, optionally with a role.
+
+        Parameters
+        ----------
+        author : Union[str, MusicArtist]
+            The music artists invovled in the creative process.
+        role : list, optional
+            The corresponding roles played by the given artists.
         """
         author_uri = get_uri(author)
         self.authors.add(author)  # remember the author
         self.supdate(CORE.involvesAgent, author_uri)
         self.tupdate(author_uri, CORE.isInvolvedIn)
-        if role is not None:  # create n-ary relationship
-            agent_role_uri = URIRef("creative_proc_plus_agent_plus_role_TODO")  #TODO
+        for role in roles:  # create n-ary relationship
+            agent_role_uri = recontextaulise_uri(
+                self._uri, "AgentRole", author_uri, role) # XXX Role URI
             self.update(agent_role_uri, RDF.type, CORE.AgentRole)
-            self.update(agent_role_uri, CORE.involvesRole, URIRef(role))
+            self.update(agent_role_uri, CORE.involvesRole, role)
             self.update(agent_role_uri, CORE.involvesAgent, author_uri)
             self.supdate(CORE.hasAgentRole, agent_role_uri)
 
     def add_creative_action(self,
-                            authors: List[Union[str, MusicArtist]] = None,
-                            creative_tasks: List[str] = None,
+                            authors: List[Union[str, MusicArtist]] = [],
+                            creative_tasks: List[str, URIRef] = [],
                             place: Union[str, Place] = None,
                             action_start_date: str = None,
                             action_end_date: str = None,
         ):
-        if not all([c for c in creative_tasks]):  # sanity check on CTs
-            raise ValueError(f"Supported creative tasks: {CREATIVE_TASKS}")
+        # First running some sanity checks to make sure artists are not new
+        for author in authors:
+            if get_uri(author) not in [get_uri(a) for a in self.authors]:
+                logger.warning(f"Artist {author} was not added as author!")
+        # Second sanity check on the type of creative actions (if supported)
+        resolved_tasks = []  # holding the URIs of the given creative tasks
+        for task in creative_tasks:
+            if isinstance(task, str):
+                if task not in CREATIVE_TASKS:  # attempting to retrieve task
+                    raise ValueError(f"Not a supported creative task {task}")
+                task = CREATIVE_TASKS[task]  # retrieve the URI of the task
+            resolved_tasks.append(task)
 
         # URI of CreativeAction can use the other optional info here and we
         # should check that at least some parameters are not None
-        creative_action_uri = self.uri + "_some_incremental_suffix"  # FIXME
-        self.update(creative_action_uri, RDFS.subClassOf, CORE.TimeIndexedSituation)
+        creative_action_uri = recontextaulise_uri(
+                self._uri, "CreativeAction", *authors, *resolved_tasks,
+                place, action_start_date, action_end_date)
+        self.update(creative_action_uri, RDF.type, MM.CreativeAction)
+        self.supdate(MM.involvesCreativeAction, creative_action_uri)
 
-        if authors is not None:
+        if len(authors) > 0:
             for author in authors:
                 self.update(creative_action_uri, CORE.involvesAgent, author)
+        if len(resolved_tasks) > 0:
+            for task in resolved_tasks:
+                self.update(creative_action_uri, MM.executesTask, task)
+        if place is not None:
+            self.update(creative_action_uri, CORE.hasPlace, get_uri(place))
+        if action_end_date is not None or action_end_date is not None:
+            action_timespan = TimeInterval(action_end_date, action_end_date)
+            self.include_graph(action_timespan)  # add interval triples
+            self.supdate(CORE.hasTimeInterval, action_timespan._uri)
 
 
 class MusicEntity(TripledObject):

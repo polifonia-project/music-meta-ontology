@@ -123,7 +123,7 @@ class TimeInterval(TripledObject):
 
         self._start_time = start_time
         self._end_time = end_time
-        uri = URIRef(f"baseTODO/TimeInterval/{start_time}_{end_time}")
+        uri = URIRef(f"PMM_BASEURI/TimeInterval/{start_time}_{end_time}")
         super().__init__(uri=uri)  # FIXME
         self.supdate(RDF.type, CORE.TimeInterval)
         self.supdate(CORE.startTime, Literal(start_time, datatype=XSD.dateTime))
@@ -131,7 +131,7 @@ class TimeInterval(TripledObject):
 
         if subject is not None:  # attach to subject
             self.attach_to_subject(subject)
-    
+
     def attach_to_subject(self, subject: Union[str, TripledObject]):
         """
         Associates this TimeInterval to the subject entity and updated the
@@ -150,4 +150,3 @@ def get_uri(entity: Union[str, TripledObject]):
         return entity._uri
     
     raise ValueError(f"Could not retrieve a URI from {type(entity)} object")
-
